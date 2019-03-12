@@ -10,6 +10,7 @@ namespace AwesomeSpaceGame
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
