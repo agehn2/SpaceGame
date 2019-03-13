@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Planets
+namespace AwesomeSpaceGame
 {
-    class Program
+    class SpaceShips
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
