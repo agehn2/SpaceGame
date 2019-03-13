@@ -11,10 +11,11 @@ namespace AwesomeSpaceGame
         double x, y;
         string name;
 
-        public Planet()
+        public Planet(string name, double x, double y)
         {
-            string name = "";
-            name = planetX;
+            this.name = name;
+            this.x = x;
+            this.y = y;
         }
     }
 }
