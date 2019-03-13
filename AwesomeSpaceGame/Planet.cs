@@ -13,7 +13,8 @@ namespace AwesomeSpaceGame
 
         public Planet()
         {
-
+            string name = "";
+            name = planetX;
         }
     }
 }
