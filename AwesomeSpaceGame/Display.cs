@@ -20,6 +20,7 @@ namespace AwesomeSpaceGame
 
         private void MainPage()
         {
+        
             ASCIIMain();
             Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
 
@@ -32,7 +33,7 @@ namespace AwesomeSpaceGame
                 "\n                                     Visit the nearest ARMY recruiting center!! ";
             foreach (char c in script)
             {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(c);
                 Thread.Sleep(40);
             }

@@ -8,38 +8,38 @@ namespace AwesomeSpaceGame
 {
     class SpaceShip
     {
+        string name;
         double capacity;
         double speed;
-        const double startMaxCapaOne = 1000;
-        const double startMaxCapaTwo= 700;
-        const double speedOne = 2;
-        const double speedTwo = 5;
-        int selectShip;
-        int select;
-
+        const double startMaxCapaOne = 1000;      
+        const double startSpeed = 2;      
         
 
-        public SpaceShip(int a)
+
+
+        public SpaceShip(string name)
         {
-            
-            ShipSelect(a);
-            
+            this.name = name;
+            capacity = startMaxCapaOne;
+            speed = startSpeed;
         }
 
-        void ShipSelect(int a)
-        {
-            selectShip = a;
-            if (select == 1)
-            {
-                capacity = startMaxCapaOne;
-                speed = speedOne;
-            }
-            else
-            {
-                capacity = startMaxCapaTwo;
-                speed = speedTwo;
-            }
-        }
+
+
+        //void ShipSelect(int a)
+        //{
+        //    selectShip = a;
+        //    if (select == 1)
+        //    {
+        //        capacity = startMaxCapaOne;
+        //        speed = speedOne;
+        //    }
+        //    else
+        //    {
+        //        capacity = startMaxCapaTwo;
+        //        speed = speedTwo;
+        //    }
+        //}
 
         //Add weight to ship
         public void AddCapacity(int addWeight) => capacity += addWeight;

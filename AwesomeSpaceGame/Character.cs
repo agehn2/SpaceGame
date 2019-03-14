@@ -13,6 +13,8 @@ namespace AwesomeSpaceGame
         const int startAge = 20;
         double money;
         double age;
+        int select;
+
 
         //constructor
         public Character(string name)
@@ -32,6 +34,6 @@ namespace AwesomeSpaceGame
         {
             money -= subtract;
         }
-
+s
     }
 }
