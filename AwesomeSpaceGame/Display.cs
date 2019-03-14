@@ -8,11 +8,11 @@ namespace AwesomeSpaceGame
 {
     class Display
     {
-        public void title()
+        public void Title()
         { 
-          Console.Title = "";
           Console.ForegroundColor = ConsoleColor.Green;
-          string title = @"    _____                          __  __                __         
+          string title = @"
+                               _____                          __  __                __         
                               / ___/____  ____ _________     / / / /_  ____________/ /__  _____
                               \__ \/ __ \/ __ `/ ___/ _ \   / /_/ / / / / ___/ ___/ / _ \/ ___/
                              ___/ / /_/ / /_/ / /__/  __/  / __  / /_/ (__  |__  ) /  __/ /    
@@ -21,7 +21,9 @@ namespace AwesomeSpaceGame
 
             Console.WriteLine(title);
             Console.ResetColor();
+            Console.WriteLine("\n\n\n                                         Press any key to start DA HUSTLE...");
             Console.ReadKey();
+
             
         }
 

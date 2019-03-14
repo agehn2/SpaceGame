@@ -10,10 +10,7 @@ namespace AwesomeSpaceGame
     {
         static void Main(string[] args)
         {
-          
-            
-            
-            
+            new Display().Title();           
             
             
         }
