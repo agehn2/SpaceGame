@@ -8,15 +8,27 @@ namespace AwesomeSpaceGame
 {
     class Character
     {
-        //Characteristics
+        //characteristics    
         string name;
+        double age;
         double money;
-        
-        public Character(string name, double age)
+
+        //constructor
+        public Character(string name)
         {
-            string name = Console.ReadLine();
-            double age = new age ();
-            
+            this.name = name;
+            age = 20;
+            money = 1000;
+        }
+        //Add money to player
+        public void AddMoney(int deposit)
+        {
+            money += deposit;
+        }
+        //Take money from player
+        public void TakeMoney(int subtract)
+        {
+            money -= subtract;
         }
 
     }
