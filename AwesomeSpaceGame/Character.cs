@@ -12,13 +12,15 @@ namespace AwesomeSpaceGame
         string name;
         const int startAge = 20;
         double money;
+        double age;
 
         //constructor
         public Character(string name)
         {
             this.name = name;
             money = 1000;
-            int age = startAge;
+            age = startAge;
+
         }
         //Add money to player
         public void AddMoney(int deposit)
