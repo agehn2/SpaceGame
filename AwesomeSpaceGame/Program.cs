@@ -10,7 +10,12 @@ namespace AwesomeSpaceGame
     {
         static void Main(string[] args)
         {
-            new Planet().Run()
+          
+            
+            
+            
+            
+            
         }
     }
 }
