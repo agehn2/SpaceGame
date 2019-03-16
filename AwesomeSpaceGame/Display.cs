@@ -9,8 +9,8 @@ namespace AwesomeSpaceGame
 {
     class Display
     {
-        int selectedItem = 0;
-            List<string> mainMenu = new List<string>();
+        List<string> mainMenu = new List<string>();
+        int selectedMenu = 0;
 
         public void Run()
         {
@@ -22,7 +22,6 @@ namespace AwesomeSpaceGame
         {
         
             ASCIIMain();
-            Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
 
             string script = "\n\n\n" +
                 "\n                                                   Earth needs YOU... " +
@@ -35,16 +34,15 @@ namespace AwesomeSpaceGame
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(c);
-                Thread.Sleep(40);
+                Thread.Sleep(0);
             }
+            Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
             Console.ReadKey();
-
             bool valid = false;
             //Console.Write("What is your name, warrior?: ");
             //string userName = Console.ReadLine();
 
             mainMenu.Add("Start");
-            mainMenu.Add("");
             mainMenu.Add("Quit");
         
             do
@@ -52,49 +50,46 @@ namespace AwesomeSpaceGame
                 Console.Clear();
                 ASCIIMain();
 
-                for (int i = 0; i < mainMenu.Count; ++i)
+                bool quit = false;
+                do
                 {
-                    if (selectedItem == 0)
-                    {
-                        {
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.ForegroundColor = ConsoleColor.DarkGray;
-                        }
-                        Console.WriteLine(mainMenu[selectedItem]);
-                        selectedItem++;
-                    }
-                    else if (selectedItem == 1)
-                    {
-                        {
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.ForegroundColor = ConsoleColor.DarkGray;
-                        }
-                        Console.WriteLine(mainMenu[selectedItem]);
-                        selectedItem++;
-                    }
-                    else if (selectedItem == 1)
-                    {
-                        {
-                            Console.BackgroundColor = ConsoleColor.White;
-                            Console.ForegroundColor = ConsoleColor.DarkGray;
-                        }
-                        Console.WriteLine(mainMenu[selectedItem]);
-                        selectedItem++;
-                    }
-                }
-
-                switch (Console.ReadKey().Key)
+                    PrintMenu();
+                    var key = Console.ReadKey().Key;
+                switch (key)
                 {
                     case ConsoleKey.DownArrow:
                         SelectNextItem();
                         break;
                     case ConsoleKey.Enter:
+                            quit = true;
                         break;
                 }
+                } while (!quit);
+
 
             } while (!valid);
 
 
+        }
+
+        private void PrintMenu()
+        {
+            Console.Clear();
+                ASCIIMain();
+
+            for (int i = 0; i < mainMenu.Count; ++i)
+            {
+                Console.WriteLine("\n\n");
+                if (i==selectedMenu)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                Console.WriteLine($"                                                      {mainMenu[i]}                                                    ");
+
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.BackgroundColor = ConsoleColor.Black;
+            }
         }
 
         private static void ASCIIMain()
@@ -114,10 +109,10 @@ namespace AwesomeSpaceGame
 
         private void SelectNextItem()
         {
-            selectedItem += 1;
-            if (selectedItem >= mainMenu.Count)
+            selectedMenu += 1;
+            if (selectedMenu >= mainMenu.Count)
             {
-                selectedItem = 0;
+                selectedMenu = 0;
             }           
         }
 
