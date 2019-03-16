@@ -16,7 +16,7 @@ namespace AwesomeSpaceGame
             Character One = new Character($"{userName}");
             
             string shipName = Console.ReadLine();
-            SpaceShip quikStar = new SpaceShip($"{shipName}") 
+            SpaceShip quikStar = new SpaceShip($"{shipName}"); 
                     
                 
             

@@ -34,6 +34,6 @@ namespace AwesomeSpaceGame
         {
             money -= subtract;
         }
-s
+
     }
 }
