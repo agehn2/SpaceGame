@@ -40,26 +40,48 @@ namespace AwesomeSpaceGame
             Console.ReadKey();
 
             bool valid = false;
-            Console.Write("What is your name, warrior?: ");
-            string userName = Console.ReadLine();
+            //Console.Write("What is your name, warrior?: ");
+            //string userName = Console.ReadLine();
 
+            mainMenu.Add("Start");
+            mainMenu.Add("");
+            mainMenu.Add("Quit");
         
             do
             {
                 Console.Clear();
                 ASCIIMain();
-                mainMenu.Add("Start");
-                mainMenu.Add("");
-                mainMenu.Add("Quit");
+
                 for (int i = 0; i < mainMenu.Count; ++i)
                 {
-                    if (selectedItem == i)
+                    if (selectedItem == 0)
                     {
-                        Console.BackgroundColor = ConsoleColor.White;
-                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                        }
+                        Console.WriteLine(mainMenu[selectedItem]);
+                        selectedItem++;
                     }
-                    Console.WriteLine(mainMenu[selectedItem]);
-                }                
+                    else if (selectedItem == 1)
+                    {
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                        }
+                        Console.WriteLine(mainMenu[selectedItem]);
+                        selectedItem++;
+                    }
+                    else if (selectedItem == 1)
+                    {
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.DarkGray;
+                        }
+                        Console.WriteLine(mainMenu[selectedItem]);
+                        selectedItem++;
+                    }
+                }
 
                 switch (Console.ReadKey().Key)
                 {
