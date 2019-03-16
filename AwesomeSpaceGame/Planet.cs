@@ -36,6 +36,8 @@ namespace AwesomeSpaceGame
 
 
 
+
+
         public Planet(string name, double x, double y)
         {
             this.name = name;

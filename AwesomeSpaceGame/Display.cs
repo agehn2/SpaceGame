@@ -9,6 +9,7 @@ namespace AwesomeSpaceGame
 {
     class Display
     {
+        
         List<string> mainMenu = new List<string>();
         int selectedMenu = 0;
         bool quit = false;
@@ -39,7 +40,7 @@ namespace AwesomeSpaceGame
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(c);
-                Thread.Sleep(20);
+                Thread.Sleep(00);
             }
             Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
             Console.ReadKey();
@@ -77,13 +78,14 @@ namespace AwesomeSpaceGame
 
 
         }
-
+        
         private bool Play()
         {
             if (selectedMenu == 0)
             {
                 //new SpaceShip().Run();
-                Console.WriteLine("GAME MAIN PAGE");
+                Console.Clear();
+                Console.WriteLine("What is your name soldier?");              
                 Console.ReadLine();
                 return false;
             }

@@ -19,7 +19,7 @@ namespace AwesomeSpaceGame
         string spaceShipName2 = "M1A1 Space Edition";           //High Cap, Average, $$
         string spaceShipName3 = "Space Force One";              //High Cap, Fast, $$$
 
-
+       
         public SpaceShip(string name, double capacity, double warpFactor)
         {
             this.name = name;
