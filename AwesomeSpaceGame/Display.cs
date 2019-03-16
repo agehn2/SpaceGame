@@ -34,7 +34,7 @@ namespace AwesomeSpaceGame
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(c);
-                Thread.Sleep(0);
+                Thread.Sleep(20);
             }
             Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
             Console.ReadKey();
@@ -55,15 +55,18 @@ namespace AwesomeSpaceGame
                 {
                     PrintMenu();
                     var key = Console.ReadKey().Key;
-                switch (key)
-                {
-                    case ConsoleKey.DownArrow:
-                        SelectNextItem();
-                        break;
-                    case ConsoleKey.Enter:
-                            quit = true;
-                        break;
-                }
+                    switch (key)
+                    {
+                        case ConsoleKey.UpArrow:
+                            SelectPreviousItem();
+                            break;
+                        case ConsoleKey.DownArrow:
+                            SelectNextItem();
+                            break;
+                        case ConsoleKey.Enter:
+                                quit = true;
+                            break;
+                    }
                 } while (!quit);
 
 
@@ -115,6 +118,16 @@ namespace AwesomeSpaceGame
                 selectedMenu = 0;
             }           
         }
+
+        private void SelectPreviousItem()
+        {
+            selectedMenu -= 1;
+            if (selectedMenu <0)
+            {
+                selectedMenu = mainMenu.Count;
+            }
+        }
+
 
 
 
