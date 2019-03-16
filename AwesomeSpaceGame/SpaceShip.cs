@@ -46,21 +46,7 @@ namespace AwesomeSpaceGame
             }
         }
 
-        //void ShipSelect(int a)
-        //{
-        //    selectShip = a;
-        //    if (select == 1)
-        //    {
-        //        capacity = startMaxCapaOne;
-        //        speed = speedOne;
-        //    }
-        //    else
-        //    {
-        //        capacity = startMaxCapaTwo;
-        //        speed = speedTwo;
-        //    }
-        //}
-
+     
         //Add weight to ship
         public void AddCapacity(int addWeight) => capacity += addWeight;
         //Remove weight from ship player

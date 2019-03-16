@@ -8,15 +8,13 @@ namespace AwesomeSpaceGame
 {
     class PersonAndShip
     {
-      
-        public void Run()
+        public Character One;
+        public SpaceShip First;
+
+        public PersonAndShip(string username)
         {
-            Console.WriteLine("What is your Name?");
-            string userName = Console.ReadLine();
-            Character One = new Character($"{userName}");
-            
-            string shipName = Console.ReadLine();
-            //SpaceShip quikStar = new SpaceShip($"{shipName}"); 
+            One = new Character(userName);
+            First = new SpaceShip("Blue Falcon", ")
                     
                 
             

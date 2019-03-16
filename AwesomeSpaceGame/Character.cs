@@ -9,10 +9,10 @@ namespace AwesomeSpaceGame
     class Character
     {
         //characteristics    
-        string name;
+        public string name;
         const int startAge = 20;
-        double money;
-        double age;
+        public double money;
+        public double age;
         int select;
 
 
@@ -20,8 +20,8 @@ namespace AwesomeSpaceGame
         public Character(string name)
         {
             this.name = name;
-            money = 1000;
-            age = startAge;
+            this.money = 1000;
+            this.age = startAge;
 
         }
         //Add money to player
@@ -33,6 +33,11 @@ namespace AwesomeSpaceGame
         public void TakeMoney(int subtract)
         {
             money -= subtract;
+        }
+
+        public void displayCharacter()
+        {
+            Console.WriteLine($"Your characters name is{name}, you have {money}, you are {age} old")
         }
 
     }

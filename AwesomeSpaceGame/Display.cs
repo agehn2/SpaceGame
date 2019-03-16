@@ -19,7 +19,7 @@ namespace AwesomeSpaceGame
 
 
         int selectedItem = 0;
-        List<string> mainMenu = new List<string>();
+        //%%List<string> mainMenu = new List<string>();
 
         private void MainPage()
         {
