@@ -9,14 +9,14 @@ namespace AwesomeSpaceGame
 {
     class Display
     {
-        int selectedItem = 0;
-            List<string> mainMenu = new List<string>();
-
         public void Run()
         {
             MainPage();
         }
 
+
+        int selectedItem = 0;
+        List<string> mainMenu = new List<string>();
 
         private void MainPage()
         {

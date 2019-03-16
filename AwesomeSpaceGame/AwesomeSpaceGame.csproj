@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Character.cs" />
+    <Compile Include="ConsoleMenu.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="PersonAndShip.cs" />
     <Compile Include="Planet.cs" />
