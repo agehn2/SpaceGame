@@ -85,7 +85,8 @@ namespace AwesomeSpaceGame
             {
                 //new SpaceShip().Run();
                 Console.Clear();
-                Console.WriteLine("What is your name soldier?");              
+                Console.WriteLine("“Player” you are not part of the worlds greatest military in the universe…");
+                Console.WriteLine("\n\n\n\n ........3 years later\n It is time for you to get out of the military.But if you get out now you will not be able to pay for “blank”.\n You are on leave for 50 days and by the end you have to earn “blank amount of money” or reenlist\n ...FOR LIFE");                                                                                                            
                 Console.ReadLine();
                 return false;
             }

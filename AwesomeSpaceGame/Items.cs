@@ -33,12 +33,12 @@ namespace AwesomeSpaceGame
             myList.Add(("Item3", weight));
         }
 
-        public void displayMarket()
-        {
-            foreach (object o in ))
-            {
-                Console.WriteLine(o);
-            }
+        //public void displayMarket()
+        //{
+        //    foreach (object o in ))
+        //    {
+        //        Console.WriteLine(o);
+        //    }
             
        
 
