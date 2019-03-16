@@ -11,6 +11,8 @@ namespace AwesomeSpaceGame
     {
         List<string> mainMenu = new List<string>();
         int selectedMenu = 0;
+        bool quit = false;
+        bool valid = false;
 
         public void Run()
         {
@@ -38,7 +40,6 @@ namespace AwesomeSpaceGame
             }
             Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
             Console.ReadKey();
-            bool valid = false;
             //Console.Write("What is your name, warrior?: ");
             //string userName = Console.ReadLine();
 
@@ -50,7 +51,6 @@ namespace AwesomeSpaceGame
                 Console.Clear();
                 ASCIIMain();
 
-                bool quit = false;
                 do
                 {
                     PrintMenu();
@@ -64,7 +64,7 @@ namespace AwesomeSpaceGame
                             SelectNextItem();
                             break;
                         case ConsoleKey.Enter:
-                                quit = true;
+                            Play();
                             break;
                     }
                 } while (!quit);
@@ -73,6 +73,23 @@ namespace AwesomeSpaceGame
             } while (!valid);
 
 
+        }
+
+        private bool Play()
+        {
+            if (selectedMenu == 0)
+            {
+                //new SpaceShip().Run();
+                Console.WriteLine("GAME MAIN PAGE");
+                Console.ReadLine();
+                return false;
+            }
+            else if (selectedMenu == mainMenu.Count-1)
+            {
+                return quit = valid = true;
+            }
+            else
+                return false;
         }
 
         private void PrintMenu()
