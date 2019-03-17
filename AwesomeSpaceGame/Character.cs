@@ -11,8 +11,9 @@ namespace AwesomeSpaceGame
         //characteristics    
         public string name;
         const int startAge = 20;
-        public double money;
-        public double age;
+        const int endAge = 70;
+        double money;
+        double age;
         int select;
     }
 }
