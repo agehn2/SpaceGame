@@ -21,8 +21,37 @@ namespace AwesomeSpaceGame
             Console.WriteLine($"{one.Intro(userInput)}");
             one.PrintCharacter(userInput);
             Console.ReadLine();
-            
-       
+
+            Planet earth = new Planet("Earth", 0.0, 0.0);
+            Planet planet1 = new Planet("Alpha Centauri 3", 2.3, 3.7); //4.37 ly
+            Planet planet2 = new Planet("40 Eridani", 16.6, -35.2); //38.9 ly
+            Planet planet3 = new Planet("YZ Ceti", -6.1, 10.5); //12.1
+            newMarket earthMarket = new newMarket();
+            newMarket alphaCentauri = new newMarket();
+            newMarket Eridani = new newMarket();
+            newMarket ceti = new newMarket();
+            earthMarket.AddItem(new Item("steel", 500, 5.00));
+
+            Console.WriteLine("Which planet would you like to go to?");
+            int choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    break;
+
+            }
+
+
 
             //Console.WriteLine("Enter warp factor: ");
             //double warpFactor = Convert.ToDouble(Console.ReadLine());
