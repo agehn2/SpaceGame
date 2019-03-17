@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Display.cs" />
+    <Compile Include="GameManager.cs" />
     <Compile Include="Items.cs" />
+    <Compile Include="Market.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -22,9 +22,9 @@ namespace AwesomeSpaceGame
 
 
         int selectedItem = 0;
-        //%%List<string> mainMenu = new List<string>();
+       
 
-        private void MainPage()
+        public void MainPage()
         {
         
             ASCIIMain();
@@ -85,7 +85,6 @@ namespace AwesomeSpaceGame
             {
                 //new SpaceShip().Run();
                 Console.Clear();
-                Console.WriteLine("What is your name");
                 Console.ReadLine();
                 return false;
             }
@@ -97,7 +96,7 @@ namespace AwesomeSpaceGame
                 return false;
         }
 
-        private void PrintMenu()
+        public void PrintMenu()
         {
             Console.Clear();
                 ASCIIMain();

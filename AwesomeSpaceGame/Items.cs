@@ -6,39 +6,20 @@ using System.Threading.Tasks;
 
 namespace AwesomeSpaceGame
 {
-    class Items
+    class Inventory
     {
-        List<(string, int)> myList = new List<(string, int)>();
-        int weight;
 
-        public void marketOne()
+        string name;
+        double weight;
+        double price;
+
+        public void addItem(string name, double weight, double price)
         {
-            myList.Add(("Item1", weight));
-            myList.Add(("Item2", weight));
-            myList.Add(("Item3", weight));
+            this.name = name;
+            this.weight = weight;
+            this.price = weight;
 
         }
-
-        public void marketTwo()
-        {
-            myList.Add(("Item1", weight));
-            myList.Add(("Item2", weight));
-            myList.Add(("Item3", weight));
-        }
-
-        public void marketThree()
-        {
-            myList.Add(("Item1", weight));
-            myList.Add(("Item2", weight));
-            myList.Add(("Item3", weight));
-        }
-
-        //public void displayMarket()
-        //{
-        //    foreach (object o in ))
-        //    {
-        //        Console.WriteLine(o);
-        //    }
             
        
 

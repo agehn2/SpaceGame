@@ -14,31 +14,32 @@ namespace AwesomeSpaceGame
         public double money;
         public double age;
         int select;
+
+public void AddMoney(int deposit)
+{
+    money += deposit;
+}
+//Take money from player
+public void TakeMoney(int subtract)
+{
+    money -= subtract;
+}
     }
 }
 
 
-        //    //constructor
-        //    public void CreateCharacter(string name)
-        //    {
-        //        this.name = name;
-        //        this.money = 1000;
-        //        this.age = startAge;
-        //    }
-        //    //Add money to player
-        //    public void AddMoney(int deposit)
-        //    {
-        //        money += deposit;
-        //    }
-        //    //Take money from player
-        //    public void TakeMoney(int subtract)
-        //    {
-        //        money -= subtract;
-        //    }
+//    //constructor
+//    public void CreateCharacter(string name)
+//    {
+//        this.name = name;
+//        this.money = 1000;
+//        this.age = startAge;
+//    }
+//Add money to player
 
-        //    //public void displayCharacter()
-        //    //{
-        //    //    Console.WriteLine($"Your characters name is{name}, you have {money}, you are {age} old")
-        //    //}
+//    //public void displayCharacter()
+//    //{
+//    //    Console.WriteLine($"Your characters name is{name}, you have {money}, you are {age} old")
+//    //}
 
-        //}
+//}
