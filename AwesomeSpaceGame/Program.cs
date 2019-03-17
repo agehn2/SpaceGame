@@ -19,8 +19,9 @@ namespace AwesomeSpaceGame
             Console.Write("What is your Name: ");
             string userInput = Console.ReadLine();
             Console.WriteLine($"{one.Intro(userInput)}");
+            one.PrintCharacter(userInput);
             Console.ReadLine();
-      
+            
        
 
             //Console.WriteLine("Enter warp factor: ");
