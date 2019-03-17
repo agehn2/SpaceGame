@@ -18,7 +18,6 @@ namespace AwesomeSpaceGame
             this.name = name;
             this.weight = weight;
             this.price = weight;
-
         }
             
        

@@ -86,7 +86,7 @@ namespace AwesomeSpaceGame
                 //new SpaceShip().Run();
                 Console.Clear();
                 Console.ReadLine();
-                return false;
+                return quit = valid = true;
             }
             else if (selectedMenu == mainMenu.Count-1)
             {
