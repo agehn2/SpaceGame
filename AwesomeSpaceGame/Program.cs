@@ -22,9 +22,9 @@ namespace AwesomeSpaceGame
 
 
             Planet earth = new Planet("Earth", 0.0, 0.0);
-            Planet planet1 = new Planet("Alpha Centauri 3", 2.3, 3.7); //4.37 ly
-            Planet planet2 = new Planet("40 Eridani", 16.6, -35.2); //38.9 ly
-            Planet planet3 = new Planet("YZ Ceti", -6.1, 10.5); //12.1
+            Planet planet1 = new Planet("Alpha Centauri 3", 12.2, 20.3); //4.37 ly
+            Planet planet2 = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
+            Planet planet3 = new Planet("YZ Ceti", -455.1, 900.5); //12.1
             newMarket earthMarket = new newMarket();
             newMarket alphaCentauri = new newMarket();
             newMarket Eridani = new newMarket();
@@ -41,11 +41,15 @@ namespace AwesomeSpaceGame
                     Console.WriteLine($"{m1A1.Speed(SpaceShip.warpFactor2):f2}");             // WarpFactor speed Test: 9.6 / 1909
                     Console.WriteLine($"{spaceForceOne.Speed(SpaceShip.warpFactor3):f2}");    // WarpFactor speed Test  Good!
 
-            Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(2.3, 16.6, 3.7, -35.2):f2}");         //Distance Test
-            Console.WriteLine($"Distance from {planet2} to {planet3} is {planet1.Distance(-6.1, 16.6, 10.5, -35.2):f2}");       //Distance Test
-            Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(16.6, 2.3, -35.2, 3.7):f2}");         //Distance Test   Name has to be revised. Calc good!
+            Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(20.3, 160.6, 30.7, -350.2):f2}");         //Distance Test
+            Console.WriteLine($"Distance from {planet2} to {planet3} is {planet1.Distance(-60.1, 160.6, 100.5, -350.2):f2}");       //Distance Test
+            Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(160.6, 20.3, -350.2, 30.7):f2}");         //Distance Test   Name has to be revised. Calc good!
 
+            double duration = planet1.Distance(90.5, 12.2, 150.2, 20.3)/blueFalcon.Speed(SpaceShip.warpFactor);
 
+            
+
+            Console.WriteLine($"{duration:f2}"); //duration of travel using M1A1 from planet 1 to 2
 
 
             Console.WriteLine("Which planet would you like to go to?");
@@ -93,5 +97,23 @@ namespace AwesomeSpaceGame
         public void createName()
         {
         }
+
+         //double duration = planet1.Distance(0, -155.1, 0, 400.5)/m1A1.Speed(SpaceShip.warpFactor2);
+          //Planet earth = new Planet("Earth", 0.0, 0.0);
+          //  Planet planet1 = new Planet("Alpha Centauri 3", 12.2, 20.3); //4.37 ly
+          //  Planet planet2 = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
+          //  Planet planet3 = new Planet("YZ Ceti", -155.1, 400.5); //12.1
+
+        // public const double warpFactor = 9.2;
+        //public const double warpFactor2 = 9.6;
+        //public const double warpFactor3 = 9.99;
+
+        //public const string spaceShipName1 = "Blue Falcon";                  //Average, $
+        //public const string spaceShipName2 = "M1A1 Space Edition";           //High Cap, Average, $$
+        //public const string spaceShipName3 = "Space Force One";              //High Cap, Fast, $$$
+
+
+
+
     }
 }
