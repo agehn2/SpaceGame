@@ -14,10 +14,18 @@ namespace AwesomeSpaceGame
         const double speedOfLight = 1.0;
         public const double startMaxCapaOne = 1000;
 
-        const double n = 1.7952294708;
-        const double a = 0.03658749373;
-                
-       
+        private const double n = 1.7952294708;
+        private const double a = 0.03658749373;
+
+        public const double warpFactor = 9.5;
+        public const double warpFactor2 = 9.9;
+        public const double warpFactor3 = 9.99;
+
+        public const string spaceShipName1 = "Blue Falcon";                  //Average, $
+        public const string spaceShipName2 = "M1A1 Space Edition";           //High Cap, Average, $$
+        public const string spaceShipName3 = "Space Force One";              //High Cap, Fast, $$$
+
+
         public SpaceShip(string name, double capacity, double warpFactor)
         {
             this.name = name;

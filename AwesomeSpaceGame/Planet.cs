@@ -29,11 +29,7 @@ namespace AwesomeSpaceGame
             return distance;
         }
 
-        private double Duration(double distance, double warpFactor)
-        {
-            //TODO:
-            return 0;
-        }
+   
 
         public void AddMarket()
         {

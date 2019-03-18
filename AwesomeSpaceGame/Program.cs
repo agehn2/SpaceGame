@@ -32,22 +32,19 @@ namespace AwesomeSpaceGame
             earthMarket.AddItem(new Item("steel", 500, 5.00));
 
 
-            string spaceShipName1 = "Blue Falcon";                  //Average, $
-            string spaceShipName2 = "M1A1 Space Edition";           //High Cap, Average, $$
-            string spaceShipName3 = "Space Force One";              //High Cap, Fast, $$$
+                    SpaceShip blueFalcon = new SpaceShip(SpaceShip.spaceShipName1, SpaceShip.startMaxCapaOne, SpaceShip.warpFactor);
+                    SpaceShip m1A1 = new SpaceShip(SpaceShip.spaceShipName1, SpaceShip.startMaxCapaOne, SpaceShip.warpFactor);
+                    SpaceShip spaceForceOne = new SpaceShip(SpaceShip.spaceShipName1, SpaceShip.startMaxCapaOne, SpaceShip.warpFactor);
+
+                    Console.WriteLine($"{blueFalcon.Speed(SpaceShip.warpFactor):f2}");        // WarpFactor speed Test
+                    Console.WriteLine($"{m1A1.Speed(SpaceShip.warpFactor2):f2}");             // WarpFactor speed Test
+                    Console.WriteLine($"{spaceForceOne.Speed(SpaceShip.warpFactor3):f2}");    // WarpFactor speed Test  Good!
+
+            Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(2.3, 16.6, 3.7, -35.2):f2}");         //Distance Test
+            Console.WriteLine($"Distance from {planet2} to {planet3} is {planet1.Distance(-6.1, 16.6, 10.5, -35.2):f2}");       //Distance Test
+            Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(16.6, 2.3, -35.2, 3.7):f2}");         //Distance Test   Name has to be revised. Calc good!
 
 
-            double warpFactor = 8; 
-            double warpFactor2 = 9.9;
-            double warpFactor3 = 9.99;
-
-            SpaceShip blueFalcon = new SpaceShip(spaceShipName1, SpaceShip.startMaxCapaOne, warpFactor);
-            SpaceShip m1A1 = new SpaceShip(spaceShipName1, SpaceShip.startMaxCapaOne, warpFactor);
-            SpaceShip spaceForceOne = new SpaceShip(spaceShipName1, SpaceShip.startMaxCapaOne, warpFactor);
-
-            Console.WriteLine($"{blueFalcon.Speed(warpFactor):f2}");        // WarpFactor speed Test
-            Console.WriteLine($"{m1A1.Speed(warpFactor2):f2}");             // WarpFactor speed Test
-            Console.WriteLine($"{spaceForceOne.Speed(warpFactor3):f2}");    // WarpFactor speed Test  Good!
 
 
             Console.WriteLine("Which planet would you like to go to?");
