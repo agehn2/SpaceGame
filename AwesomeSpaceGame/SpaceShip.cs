@@ -10,15 +10,13 @@ namespace AwesomeSpaceGame
     {
         string name;
         double capacity;
-        double warpFactor;
         double speedOfSpaceShip;
         const double speedOfLight = 1.0;
-        const double startMaxCapaOne = 1000;
+        public const double startMaxCapaOne = 1000;
 
-        string spaceShipName1 = "Blue Falcon";                  //Average, $
-        string spaceShipName2 = "M1A1 Space Edition";           //High Cap, Average, $$
-        string spaceShipName3 = "Space Force One";              //High Cap, Fast, $$$
-
+        const double n = 1.7952294708;
+        const double a = 0.03658749373;
+                
        
         public SpaceShip(string name, double capacity, double warpFactor)
         {
@@ -30,12 +28,12 @@ namespace AwesomeSpaceGame
 
         private double getCapacity()
         {
-            return startMaxCapaOne;//Capacity calculation
+            return startMaxCapaOne;//TODO: Capacity calculation
         }
 
         public double Speed(double warpFactor)
         {
-            speedOfSpaceShip = speedOfLight * Math.Pow(warpFactor, 3.3333 + (-0.5 * Math.Log10(10 - warpFactor)));  //Warp Factor: -0.5 * Math.Log10(10-F)
+            speedOfSpaceShip = Math.Pow(warpFactor, (10/3))+Math.Pow((10-warpFactor),-11/3);  //Warp Factor: -0.5 * Math.Log10(10-F)
             if(warpFactor>=10 || warpFactor<9)
             {
                 return speedOfSpaceShip = 0;

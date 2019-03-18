@@ -8,8 +8,6 @@ namespace AwesomeSpaceGame
 {
     public class Program
     {
-
-        
         static void Main(string[] args)
         {       
         
@@ -22,6 +20,7 @@ namespace AwesomeSpaceGame
             one.PrintCharacter(userInput);
             Console.ReadLine();
 
+
             Planet earth = new Planet("Earth", 0.0, 0.0);
             Planet planet1 = new Planet("Alpha Centauri 3", 2.3, 3.7); //4.37 ly
             Planet planet2 = new Planet("40 Eridani", 16.6, -35.2); //38.9 ly
@@ -32,8 +31,28 @@ namespace AwesomeSpaceGame
             newMarket ceti = new newMarket();
             earthMarket.AddItem(new Item("steel", 500, 5.00));
 
+
+            string spaceShipName1 = "Blue Falcon";                  //Average, $
+            string spaceShipName2 = "M1A1 Space Edition";           //High Cap, Average, $$
+            string spaceShipName3 = "Space Force One";              //High Cap, Fast, $$$
+
+
+            double warpFactor = 8; 
+            double warpFactor2 = 9.9;
+            double warpFactor3 = 9.99;
+
+            SpaceShip blueFalcon = new SpaceShip(spaceShipName1, SpaceShip.startMaxCapaOne, warpFactor);
+            SpaceShip m1A1 = new SpaceShip(spaceShipName1, SpaceShip.startMaxCapaOne, warpFactor);
+            SpaceShip spaceForceOne = new SpaceShip(spaceShipName1, SpaceShip.startMaxCapaOne, warpFactor);
+
+            Console.WriteLine($"{blueFalcon.Speed(warpFactor):f2}");        // WarpFactor speed Test
+            Console.WriteLine($"{m1A1.Speed(warpFactor2):f2}");             // WarpFactor speed Test
+            Console.WriteLine($"{spaceForceOne.Speed(warpFactor3):f2}");    // WarpFactor speed Test  Good!
+
+
             Console.WriteLine("Which planet would you like to go to?");
-            int choice = int.Parse(Console.ReadLine());
+            int choice = int.Parse(Console.ReadLine()); 
+
 
             switch (choice)
             {
@@ -52,9 +71,6 @@ namespace AwesomeSpaceGame
             }
 
 
-
-            //Console.WriteLine("Enter warp factor: ");
-            //double warpFactor = Convert.ToDouble(Console.ReadLine());
 
             //new SpaceShip().Speed(warpFactor);
             //var earth = new Planet("Earth", 0.0, 0.0);

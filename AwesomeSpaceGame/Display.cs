@@ -89,7 +89,7 @@ namespace AwesomeSpaceGame
             }
             else if (selectedMenu == mainMenu.Count-1)
             {
-                return quit = valid = true;
+                return quit = true;  //TODO: Terminate program
             }
             else
                 return false;
