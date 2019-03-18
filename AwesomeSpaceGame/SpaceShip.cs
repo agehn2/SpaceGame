@@ -59,6 +59,10 @@ namespace AwesomeSpaceGame
         //Remove weight from ship player
         public void RemoveCapacity(int takeAwayWeight) => capacity -= takeAwayWeight;
             
+        //AddToINV
+        //RMVFROMIV
+        //MAKEWEIGHTCAP
+
          
 
        
