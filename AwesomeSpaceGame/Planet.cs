@@ -8,7 +8,7 @@ namespace AwesomeSpaceGame
 {
     class Planet
     {
-        double x, y;
+        double x, y;   // TODO: Struct Coords
         string name;
         double distance;
         

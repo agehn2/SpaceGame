@@ -31,13 +31,14 @@ namespace AwesomeSpaceGame
             newMarket ceti = new newMarket();
             earthMarket.AddItem(new Item("steel", 500, 5.00));
 
+        
 
                     SpaceShip blueFalcon = new SpaceShip(SpaceShip.spaceShipName1, SpaceShip.startMaxCapaOne, SpaceShip.warpFactor);
                     SpaceShip m1A1 = new SpaceShip(SpaceShip.spaceShipName1, SpaceShip.startMaxCapaOne, SpaceShip.warpFactor);
                     SpaceShip spaceForceOne = new SpaceShip(SpaceShip.spaceShipName1, SpaceShip.startMaxCapaOne, SpaceShip.warpFactor);
 
-                    Console.WriteLine($"{blueFalcon.Speed(SpaceShip.warpFactor):f2}");        // WarpFactor speed Test
-                    Console.WriteLine($"{m1A1.Speed(SpaceShip.warpFactor2):f2}");             // WarpFactor speed Test
+                    Console.WriteLine($"{blueFalcon.Speed(SpaceShip.warpFactor):f2}");        // WarpFactor speed Test: 9.2 / 1649
+                    Console.WriteLine($"{m1A1.Speed(SpaceShip.warpFactor2):f2}");             // WarpFactor speed Test: 9.6 / 1909
                     Console.WriteLine($"{spaceForceOne.Speed(SpaceShip.warpFactor3):f2}");    // WarpFactor speed Test  Good!
 
             Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(2.3, 16.6, 3.7, -35.2):f2}");         //Distance Test

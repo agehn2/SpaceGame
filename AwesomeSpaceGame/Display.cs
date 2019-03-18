@@ -10,7 +10,7 @@ namespace AwesomeSpaceGame
     class Display
     {
         
-        List<string> mainMenu = new List<string>();
+        List<string> mainMenu = new List<string>();  //TODO: Create enum Actions {Start, Quit};
         int selectedMenu = 0;
         bool quit = false;
         bool valid = false;
@@ -19,6 +19,7 @@ namespace AwesomeSpaceGame
         {
             MainPage();
         }
+
 
 
         int selectedItem = 0;
@@ -89,7 +90,7 @@ namespace AwesomeSpaceGame
             }
             else if (selectedMenu == mainMenu.Count-1)
             {
-                return quit = true;  //TODO: Terminate program
+                return true;  //TODO: Terminate program
             }
             else
                 return false;
