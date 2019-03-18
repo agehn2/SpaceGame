@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AwesomeSpaceGame
 {
-    class Planet
+    public class Planet
     {
-        double x, y;   // TODO: Struct Coords
-        string name;
-        double distance;
+        public double x, y;   // TODO: Struct Coords
+        public string name;
+        public double distance;
         
         //Planet earth = new Planet("Earth", 0.0, 0.0);
         //Planet planet1 = new Planet("Alpha Centauri 3", 2.3, 3.7); //4.37 ly
@@ -47,10 +47,7 @@ namespace AwesomeSpaceGame
 
         }
 
-        public Planet()
-        {
-
-        }
+         
 
 
     }

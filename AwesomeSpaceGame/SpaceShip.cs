@@ -61,7 +61,11 @@ namespace AwesomeSpaceGame
         //AddToINV
         //RMVFROMIV
         //MAKEWEIGHTCAP
-
+        public double Distance(Planet a,  Planet b)           //create method
+             {
+                double distance = Math.Sqrt(Math.Pow(b.x-a.x, 2) + Math.Pow(b.y-a.y, 2)/Speed(warpFactor));  
+                return distance;
+             }
          
 
        
