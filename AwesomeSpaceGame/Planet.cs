@@ -31,9 +31,10 @@ namespace AwesomeSpaceGame
 
    
 
-        public void AddMarket()
+        public void StartLocation(double x, double y)
         {
-            
+            this.x = 0;
+            this.y = 0;     
         }
 
 

@@ -11,6 +11,7 @@ namespace AwesomeSpaceGame
         string name;
         double capacity;
         double speedOfSpaceShip;
+        string StartLocation ;
         public const double startMaxCapaOne = 1000;
 
         private const double n = 1.7952294708;
@@ -38,6 +39,12 @@ namespace AwesomeSpaceGame
             return startMaxCapaOne;//TODO: Capacity calculation
         }
 
+        public void startLocation()
+        {
+            StartLocation = Planet.StartLocation();
+            
+        }
+
         public double Speed(double warpFactor)
         {
 
@@ -61,10 +68,10 @@ namespace AwesomeSpaceGame
         //AddToINV
         //RMVFROMIV
         //MAKEWEIGHTCAP
-        public double Distance(Planet a,  Planet b)           //create method
+        public double Duration(Planet a,  Planet b)           //method for duration
              {
-                double distance = Math.Sqrt(Math.Pow(b.x-a.x, 2) + Math.Pow(b.y-a.y, 2)/Speed(warpFactor));  
-                return distance;
+                double duration = Math.Sqrt(Math.Pow(b.x-a.x, 2) + Math.Pow(b.y-a.y, 2))/Speed(warpFactor);  
+                return duration;
              }
          
 

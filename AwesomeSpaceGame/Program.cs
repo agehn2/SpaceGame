@@ -45,8 +45,8 @@ namespace AwesomeSpaceGame
             Console.WriteLine($"Distance from {planet2} to {planet3} is {planet1.Distance(-60.1, 160.6, 100.5, -350.2):f2}");       //Distance Test
             Console.WriteLine($"Distance from {planet1} to {planet2} is {planet1.Distance(160.6, 20.3, -350.2, 30.7):f2}");         //Distance Test   Name has to be revised. Calc good!
 
-            //double duration = planet1.Distance(900.5, 0, -455.2, 0)/blueFalcon.Speed(SpaceShip.warpFactor);
-            double duration = blueFalcon.Distance(earth, planet3);
+            
+            double duration = blueFalcon.Duration(earth, planet3); /// method to calculate duration of travel
 
             
 
