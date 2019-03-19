@@ -39,11 +39,11 @@ namespace AwesomeSpaceGame
             return startMaxCapaOne;//TODO: Capacity calculation
         }
 
-        public void startLocation()
-        {
-            StartLocation = Planet.StartLocation();
+        //public void startLocation()
+        //{
+        //    StartLocation = Planet.StartLocation();
             
-        }
+        //}
 
         public double Speed(double warpFactor)
         {

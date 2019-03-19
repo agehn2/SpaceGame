@@ -36,6 +36,14 @@ namespace AwesomeSpaceGame
             int age = startAge;
             Console.WriteLine($"{userName} has ${this.money} and {age} years old.");
         }
+
+        public void Display()
+        {
+            Console.Write("What is your Name: ");
+            string userInput = Console.ReadLine();
+            Console.WriteLine($"{Intro(userInput)}");
+            PrintCharacter(userInput);
+        }
     }
 }
 

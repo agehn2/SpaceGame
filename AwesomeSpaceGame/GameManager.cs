@@ -16,15 +16,31 @@ namespace AwesomeSpaceGame
         newMarket alphaCentauri = new newMarket();
         newMarket Eridani = new newMarket();
         newMarket ceti = new newMarket();
+        List<string> mainMenu = new List<string>(); 
+        Character one = new Character();
+        
+        
+        
+        public void Run()
+        {
+            Display d = new Display();
+            d.ASCIIMain();
+            
+            if (d.MainMenu())
+            {
+                Console.Clear();
+                one.Display();
+
+            }
+            
+            
+        
+        }
+
+
 
         public GameManager()
         {
-        }
-
-        public void Run()
-        {
-            new Display().Run();
-
         }
 
     }
