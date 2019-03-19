@@ -20,83 +20,71 @@ namespace AwesomeSpaceGame
             MainPage();
         }
 
-
-
         int selectedItem = 0;
-        //%%List<string> mainMenu = new List<string>();
 
         private void MainPage()
         {
         
             ASCIIMain();
 
-            string script = "\n\n\n" +
-                "\n                                                   Earth needs YOU... " +
-                "\n                                                    Future WARRIOR" +
-                "\n                                               LOYALTY, DUTY, RESPECT," +
-                "\n                                         SELFLESS SERVICE, HONOR, INTEGRITY" +
-                "\n                                             and.....PERSONAL.....COURAGE!! " +
-                "\n                                     Visit the nearest ARMY recruiting center!! ";
-            foreach (char c in script)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(c);
-                Thread.Sleep(00);
-            }
-            Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
-            Console.ReadKey();
             //Console.Write("What is your name, warrior?: ");
             //string userName = Console.ReadLine();
 
             mainMenu.Add("Start");
             mainMenu.Add("Quit");
-        
+
             do
             {
                 Console.Clear();
                 ASCIIMain();
 
-                do
-                {
-                    PrintMenu();
-                    var key = Console.ReadKey().Key;
-                    switch (key)
-                    {
-                        case ConsoleKey.UpArrow:
-                            SelectPreviousItem();
-                            break;
-                        case ConsoleKey.DownArrow:
-                            SelectNextItem();
-                            break;
-                        case ConsoleKey.Enter:
-                            Play();
-                            break;
-                    }
-                } while (!quit);
+                UserInputHandler();
 
-
-            } while (!valid);
+            } while (!quit);
 
 
         }
-        
+
+        private void UserInputHandler()
+        {
+            do
+            {
+                PrintMenu();
+                var key = Console.ReadKey().Key;
+                switch (key)
+                {
+                    case ConsoleKey.UpArrow:
+                        SelectPreviousItem();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        SelectNextItem();
+                        break;
+                    case ConsoleKey.Enter:
+                        Play();
+                        break;
+                }
+            } while (!quit);
+               
+        }
+
         private bool Play()
         {
             if (selectedMenu == 0)
             {
                 //new SpaceShip().Run();
                 Console.Clear();
-                return quit = valid = true;
+                return quit = true;                    
+                
             }
             else if (selectedMenu == mainMenu.Count-1)
             {
-                return true;  //TODO: Terminate program
+                return quit = valid = true;  //TODO: Terminate program
             }
             else
                 return false;
         }
 
-        private void PrintMenu()
+        public void PrintMenu()
         {
             Console.Clear();
                 ASCIIMain();
@@ -116,7 +104,7 @@ namespace AwesomeSpaceGame
             }
         }
 
-        private static void ASCIIMain()
+        public void ASCIIMain()
         {
             Console.ForegroundColor = ConsoleColor.Green;
             string title = @"
@@ -129,6 +117,22 @@ namespace AwesomeSpaceGame
 
             Console.WriteLine(title);
             Console.ResetColor();
+            string script = "\n\n\n" +
+    "\n                                                   Earth needs YOU... " +
+    "\n                                                    Future WARRIOR" +
+    "\n                                               LOYALTY, DUTY, RESPECT," +
+    "\n                                         SELFLESS SERVICE, HONOR, INTEGRITY" +
+    "\n                                             and.....PERSONAL.....COURAGE!! " +
+    "\n                                     Visit the nearest ARMY recruiting center!! ";
+            foreach (char c in script)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(c);
+                Thread.Sleep(10);
+            }
+            Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
+            Console.ReadKey();
+
         }
 
         private void SelectNextItem()

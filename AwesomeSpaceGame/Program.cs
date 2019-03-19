@@ -11,7 +11,7 @@ namespace AwesomeSpaceGame
         static void Main(string[] args)
         {       
         
-            new Display().Run();
+            new GameManager().Run();
             Console.Clear();
             Character one = new Character();
             Console.Write("What is your Name: ");
@@ -56,22 +56,6 @@ namespace AwesomeSpaceGame
             Console.WriteLine("Which planet would you like to go to?");
             int choice = int.Parse(Console.ReadLine()); 
 
-
-            switch (choice)
-            {
-                case 1:
-                    
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                default:
-                    break;
-
-            }
 
 
 
