@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AwesomeSpaceGame
 {
     class GameManager
@@ -29,8 +30,18 @@ namespace AwesomeSpaceGame
             if (d.MainMenu())
             {
                 Console.Clear();
-                one.Display();
+                one.Display(); 
+                one.PrintCharacter();
+                one.AddMoney(100);
+                one.AddAge(1.5);
+                one.PrintCharacter();
+                Console.ReadKey();
+                one.AddAge(1.5);
+                one.TakeMoney(50);
+                one.PrintCharacter();
+                Console.ReadKey();
 
+                 
             }
             
             

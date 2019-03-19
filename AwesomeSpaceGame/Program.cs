@@ -12,7 +12,8 @@ namespace AwesomeSpaceGame
         {
             new GameManager().Run();
             Console.ReadKey();
-
+            
+        
 
 
 
