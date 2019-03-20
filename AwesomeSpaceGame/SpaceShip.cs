@@ -11,7 +11,7 @@ namespace AwesomeSpaceGame
         string name;
         double capacity;
         double speedOfSpaceShip;
-        string currentLocation ;
+        string currentLocation;
         public const double startMaxCapaOne = 1000;
 
         private const double n = 1.7952294708;
@@ -42,14 +42,14 @@ namespace AwesomeSpaceGame
         //public void startLocation()
         //{
         //    StartLocation = Planet.StartLocation();
-            
+
         //}
 
         public double Speed(double warpFactor)
         {
 
             speedOfSpaceShip = Math.Pow(warpFactor, 10 / 3) + Math.Pow(10 - warpFactor, -11 / 3); //Math.Pow(warpFactor, (Math.Pow(((10/3) + (Math.Pow(Math.E,(-1/(1000*(Math.Pow(warpFactor-9,2))))))*a*(-Math.Log(10-warpFactor))),n))) ;  
-            if(warpFactor>=10 || warpFactor<9)
+            if (warpFactor >= 10 || warpFactor < 9)
             {
                 return speedOfSpaceShip = 0;
             }
@@ -59,22 +59,50 @@ namespace AwesomeSpaceGame
             }
         }
 
-     
+
         //Add weight to ship
         public void AddCapacity(int addWeight) => capacity += addWeight;
         //Remove weight from ship player
         public void RemoveCapacity(int takeAwayWeight) => capacity -= takeAwayWeight;
-            
+
         //AddToINV
         //RMVFROMIV
         //MAKEWEIGHTCAP
-        public double Duration(Planet a,  Planet b)           //method for duration
-             {
-                double duration = Math.Sqrt(Math.Pow(b.x-a.x, 2) + Math.Pow(b.y-a.y, 2))/Speed(warpFactor);  
-                return duration;
-             }
-         
+        public double Duration(Planet a, Planet b)           //method for duration
+        {
+            double duration = Math.Sqrt(Math.Pow(b.x - a.x, 2) + Math.Pow(b.y - a.y, 2)) / Speed(warpFactor);
+            return duration;
+        }
 
-       
+        //public static void ChooseSpaceShip()
+        //{ 
+        //    Console.WriteLine("Choose your difficulty:");
+        //    Console.ForegroundColor = ConsoleColor.Red;
+        //    Console.WriteLine("=======================");
+        //    Console.ResetColor();
+        //    Console.WriteLine(" Easy\t |E|\n Medium\t |M|\n Hard\t |H|");
+
+        //    var key = Console.ReadKey().Key;
+
+        //    switch (key)
+        //    {
+        //        case ConsoleKey.E:
+        //            Console.WriteLine("Easy");
+        //            break;
+        //        case ConsoleKey.M:
+        //            Console.WriteLine("Medium");
+        //            break;
+        //        case ConsoleKey.H:
+        //            Console.WriteLine("Hard");
+        //            break;
+        //        default:
+        //            break;
+        //    }
+
+
     }
-}
+
+
+}     
+    
+

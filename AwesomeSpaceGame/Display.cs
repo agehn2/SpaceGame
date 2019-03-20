@@ -9,18 +9,18 @@ namespace AwesomeSpaceGame
 {
     class Display
     {
-
+        List<string> Difficulty = new List<string> {"Easy", "Medium", "Hard"};
         List<string> mainMenu = new List<string>();  //TODO: Create enum Actions {Start, Quit};
         int selectedMenu = 0;
 
-      
+
 
         public bool MainMenu()
         {
             mainMenu.Add("Start");
-            mainMenu.Add("Quit");
+            mainMenu.Add("Quit ");
             Console.Clear();
-            return UserInputHandler();    
+            return UserInputHandler();
         }
 
         private bool UserInputHandler()
@@ -35,8 +35,8 @@ namespace AwesomeSpaceGame
                     case ConsoleKey.UpArrow:
                         SelectPreviousItem();
                         break;
-                    case ConsoleKey.DownArrow:  
-                        SelectNextItem(); 
+                    case ConsoleKey.DownArrow:
+                        SelectNextItem();
                         break;
                     case ConsoleKey.Enter:
                         quit = true;
@@ -46,23 +46,23 @@ namespace AwesomeSpaceGame
             } while (!quit);
 
             return (selectedMenu == 0);
-           
+
         }
 
 
 
         private bool Play()
         {
-            
+
             if (selectedMenu == 0)
             {
-                
+
                 Console.Clear();
-                return true; 
+                return true;
             }
             else if (selectedMenu == mainMenu.Count - 1)
             {
-                
+
                 return true;  //TODO: Terminate program
             }
             else
@@ -71,21 +71,41 @@ namespace AwesomeSpaceGame
 
         public void PrintMenu()
         {
-
-
             Console.Clear();
+            DisplayGameName();
+            Console.ResetColor();
+            Console.WriteLine("\n\n");
+            DisplayCenter("Main Menu");
+            Console.ForegroundColor = ConsoleColor.Red;
+            DisplayCenter("=============");
+            Console.ResetColor();
+
             for (int i = 0; i < mainMenu.Count; ++i)
             {
-                Console.WriteLine("\n\n");
+                Console.WriteLine("");
                 if (i == selectedMenu)
                 {
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
-                Console.WriteLine($"                                                      {mainMenu[i]}                                                    ");
+                DisplayCenter($"{mainMenu[i]}");
 
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.BackgroundColor = ConsoleColor.Black;
+            }
+        }
+
+        public void DisplayCenter(string s)
+        {
+            if (s.Length <= Console.WindowWidth)
+            {
+                Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2,
+                    Console.CursorTop);
+                Console.WriteLine(s);
+            }
+            else
+            {
+                Console.WriteLine(s);
             }
         }
 
@@ -93,12 +113,14 @@ namespace AwesomeSpaceGame
         {
             Console.ForegroundColor = ConsoleColor.Green;
             string title = @"
-                               _____                          __  __                __         
-                              / ___/____  ____ _________     / / / /_  ____________/ /__  _____
-                              \__ \/ __ \/ __ `/ ___/ _ \   / /_/ / / / / ___/ ___/ / _ \/ ___/
-                             ___/ / /_/ / /_/ / /__/  __/  / __  / /_/ (__  |__  ) /  __/ /    
-                            /____/ .___/\__,_/\___/\___/  /_/ /_/\__,_/____/____/_/\___/_/     
-                                /_/                                                            ";
+                               _____                       ______                      
+                              /  ___|                      |  ___|                     
+                              \ `--. _ __   __ _  ___ ___  | |_ ___  _ __ ___ ___  ___ 
+                               `--. \ '_ \ / _` |/ __/ _ \ |  _/ _ \| '__/ __/ _ \/ __|
+                              /\__/ / |_) | (_| | (_|  __/ | || (_) | | | (_|  __/\__ \
+                              \____/| .__/ \__,_|\___\___| \_| \___/|_|  \___\___||___/
+                                    | |                                                
+                                    |_|                                                ";
 
             Console.WriteLine(title);
             Console.ResetColor();
@@ -139,16 +161,35 @@ namespace AwesomeSpaceGame
             }
         }
 
-
         enum QuitGame
-        { 
+        {
             UserQuit,
             LostGame,
             WonGame
         }
-        
 
+        private void DisplayGameName()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            string title = @"
+                               _____                       ______                      
+                              /  ___|                      |  ___|                     
+                              \ `--. _ __   __ _  ___ ___  | |_ ___  _ __ ___ ___  ___ 
+                               `--. \ '_ \ / _` |/ __/ _ \ |  _/ _ \| '__/ __/ _ \/ __|
+                              /\__/ / |_) | (_| | (_|  __/ | || (_) | | | (_|  __/\__ \
+                              \____/| .__/ \__,_|\___\___| \_| \___/|_|  \___\___||___/
+                                    | |                                                
+                                    |_|                                                ";
 
+            Console.WriteLine(title);
+            Console.ResetColor();
 
+        }
+
+        public void DisplayDiffuculty(string header, List<string> name)
+        {
+            
+            Selector.ArrowKeyOptionMenu("Choose Your Difficulty:", name);
+        }
     }
 }
