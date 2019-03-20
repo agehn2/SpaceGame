@@ -62,11 +62,12 @@ namespace AwesomeSpaceGame
             age += ageUp;   
         }
 
-            //Take money from player
-            public void TakeMoney(int subtract)
-            {
-                money -= subtract;
-            }
+        //Take money from player
+        public void TakeMoney(int subtract)
+        {
+            money -= subtract;
+        }
+     
             
     }
 }

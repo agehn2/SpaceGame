@@ -13,21 +13,22 @@ namespace AwesomeSpaceGame
         Planet planet1 = new Planet("Alpha Centauri 3", 25, 55); //4.37 ly
         Planet planet2 = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
         Planet planet3 = new Planet("YZ Ceti", -455.1, 900.5); //12.1  
-        List<string> Difficulty = new List<string> {"Easy", "Medium", "Hard"};
+        List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         Character one = new Character();
- 
+        SpaceShip myShip;
         public void Run()
-        {            
+        {
             ItemFactory iF = new ItemFactory();
             Display d = new Display();
             d.ASCIIMain();
-            bool leaveLoop = false;           
+            bool leaveLoop = false;
             if (d.MainMenu())
             {
-                d.DisplayDiffuculty("choose Difficulty", Difficulty);
+                SpaceShip.ChooseSpaceShip();
+                ChooseSpaceShip();
                 Console.ReadKey();
                 Console.Clear();
-                one.Display(); 
+                one.Display();
                 one.PrintCharacter();
                 do
                 {
@@ -50,7 +51,7 @@ namespace AwesomeSpaceGame
                                 iF.DisplayEarthMarket();
                                 Console.ReadKey();
                                 break;
-                            case 3:                               
+                            case 3:
                                 // TODO: ShopAtCurrentPlanet
                                 break;
                             default:
@@ -67,8 +68,45 @@ namespace AwesomeSpaceGame
                         Console.ResetColor();
                         Console.ReadKey();
                     }
-                } while (!leaveLoop);                    
-            }                              
+                } while (!leaveLoop);
+            }
         }
-    }
+
+        public void ChooseSpaceShip()
+        {
+            bool exit = false;
+            do
+            {
+                exit = false;
+                var key = Console.ReadKey(true).Key;
+                if ((key == ConsoleKey.E) || (key == ConsoleKey.M) || (key == ConsoleKey.H))
+                {
+                    exit = true;
+                    switch (key)
+                    {
+                        case ConsoleKey.E:
+                            myShip = new SpaceShip("Falcon",1000,9.5);
+                            break;
+                        case ConsoleKey.M:
+                            Console.WriteLine("Medium");
+                            break;
+                        case ConsoleKey.H:
+                            Console.WriteLine("Hard");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    exit = false;
+                }
+            } while (!exit);
+        }
+    }       
 }
+
+                    
+               // console.cursorvisible = false;
+                
+            

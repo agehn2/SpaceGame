@@ -8,7 +8,7 @@ namespace AwesomeSpaceGame
 {
     static class Selector
     {
-        
+
         public static int ArrowKeyOptionMenu(string header, List<string> options)
         {
             var fg = Console.ForegroundColor;
