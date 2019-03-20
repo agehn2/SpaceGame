@@ -35,8 +35,8 @@ namespace AwesomeSpaceGame
                     case ConsoleKey.UpArrow:
                         SelectPreviousItem();
                         break;
-                    case ConsoleKey.DownArrow:
-                        SelectNextItem();
+                    case ConsoleKey.DownArrow:  
+                        SelectNextItem(); 
                         break;
                     case ConsoleKey.Enter:
                         quit = true;
@@ -80,7 +80,7 @@ namespace AwesomeSpaceGame
                 if (i == selectedMenu)
                 {
                     Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                 }
                 Console.WriteLine($"                                                      {mainMenu[i]}                                                    ");
 

@@ -11,7 +11,7 @@ namespace AwesomeSpaceGame
         string name;
         double capacity;
         double speedOfSpaceShip;
-        string StartLocation ;
+        string currentLocation ;
         public const double startMaxCapaOne = 1000;
 
         private const double n = 1.7952294708;

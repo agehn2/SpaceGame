@@ -8,7 +8,7 @@ namespace AwesomeSpaceGame
 {
     class newMarket
     {
-        List<Item> items = new List<Item>();
+        public List<Item> items = new List<Item>();
 
         public void AddItem(Item thing)
         {
