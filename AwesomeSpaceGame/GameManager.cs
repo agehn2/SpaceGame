@@ -21,19 +21,63 @@ namespace AwesomeSpaceGame
         
         public void Run()
         {
+            
             ItemFactory iF = new ItemFactory();
             Display d = new Display();
             d.ASCIIMain();
+            bool leaveLoop = false;
             
             if (d.MainMenu())
             {
                 Console.Clear();
                 one.Display(); 
                 one.PrintCharacter();
-                iF.DisplayEarthMarket();
-                Console.ReadKey();
 
-                 
+                do
+                {
+                    try
+                    {
+                        Console.Clear();
+                        one.PrintCharacter();
+                        Console.WriteLine("Make a selection");
+                        Console.WriteLine("1.Planet Descriptions 2,travel to planet");
+                        int choice = int.Parse(Console.ReadLine());
+
+                        switch (choice)
+                        {
+                            case 1:
+                                Planet.PlanetDescription();
+                                break;
+                            case 2:
+                                ViewPlanet();
+                                Console.ReadKey();
+                                break;
+                            case 3:
+                                // TODO: ShopAtCurrentPlanet
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.Clear();
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n                                                  Invalid Input                                                                           ");
+                        Console.WriteLine("                                             Press enter to continute                                                                    ");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                    }
+
+                } while (!leaveLoop);
+                    
+
+
+
+
+
+
             }
             
             
@@ -44,6 +88,44 @@ namespace AwesomeSpaceGame
 
         public GameManager()
         {
+        }
+
+        public void ViewPlanet()
+        {
+            string planetScript = @"
+                                                             MMM8&&&.
+                                                        _...MMMMM88&&&&..._
+                                                     .::'''MMMMM88&&&&&&'''::.
+                                                    ::     MMMMM88&&&&&&     ::
+                                                    '::....MMMMM88&&&&&&....::'
+                                                       `''''MMMMM88&&&&''''`
+                                                         'MMM8&&&',MMM8&&&.
+                                                        _...MMMMM88&&&&..._
+                                                     .::'''MMMMM88&&&&&&'''::.
+                                                    ::     MMMMM88&&&&&&     ::
+                                                    '::....MMMMM88&&&&&&....::'
+                                                       `''''MMMMM88&&&&''''`
+                                                             'MMM8&&&',MMM8&&&.
+                                                        _...MMMMM88&&&&..._
+                                                     .::'''MMMMM88&&&&&&'''::.
+                                                    ::     MMMMM88&&&&&&     ::
+                                                    '::....MMMMM88&&&&&&....::'
+                                                       `''''MMMMM88&&&&''''`
+                                                       jgs   'MMM8&&&',MMM8&&&.
+                                                        _...MMMMM88&&&&..._
+                                                     .::'''MMMMM88&&&&&&'''::.
+                                                    ::     MMMMM88&&&&&&     ::
+                                                    '::....MMMMM88&&&&&&....::'
+                                                       `''''MMMMM88&&&&''''`
+                                                       jgs   'MMM8&&&'
+
+                                     ";
+
+            foreach (char c in planetScript)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(c);               
+            }
         }
 
     }
