@@ -23,7 +23,8 @@ namespace AwesomeSpaceGame
 
         Character one = new Character();
         SpaceShip myShip;
-        double warpFactor;
+        double 
+            warpFactor;
 
         public void Run()
         {
