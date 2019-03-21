@@ -36,26 +36,26 @@ namespace AwesomeSpaceGame
                     {
                         Console.Clear();
                         one.PrintCharacter();
-                        Console.WriteLine("Make a selection");                    
-                         
-                        Console.WriteLine("1.Planet Descriptions 2,travel to planet");
-                        int choice = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Make a selection");
+                        Console.WriteLine("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");
+                        var choice = Console.ReadKey().Key;
 
                         switch (choice)
                         {
-                            case 1:
+                            case ConsoleKey.D:
                                 Planet.PlanetDescription();
                                 break;
-                            case 2:
-                                Console.Clear();
-                                one.PrintCharacter();
-                                iF.DisplayEarthMarket();
+                            case ConsoleKey.T:
+                                Planet.ViewPlanet();
+                                PlanetTravel();
                                 Console.ReadKey();
                                 break;
-                            case 3:
+                            case ConsoleKey.M:
                                 RandomNumber(10, 20);
-                                Console.ReadKey();
                                 // TODO: ShopAtCurrentPlanet
+                                break;
+                            case ConsoleKey.Q:
+                                leaveLoop = true;
                                 break;
                             default:
                                 break;
@@ -72,7 +72,15 @@ namespace AwesomeSpaceGame
                         Console.ReadKey();
                     }
                 } while (!leaveLoop);
-            }
+            }      
+            
+        
+        }
+
+        private void PlanetTravel(Planet origin, Planet destination)
+        {
+            double timeToTravel = origin.Distance(origin, destination) / ChosenSpaceShip.Speed(ChosenSpaceShip.warpFactor);
+            one.LeaveLeft(timeToTravel);
         }
 
         public void ChooseSpaceShip()

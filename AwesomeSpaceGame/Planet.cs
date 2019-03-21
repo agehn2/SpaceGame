@@ -8,28 +8,28 @@ namespace AwesomeSpaceGame
 {
     public class Planet
     {
+        static List<string> planetName = new List <string>();
+
         public double x, y;   // TODO: Struct Coords
         public string name;
         public double distance;
 
+        //Tuple<string, double, double> planet = new Tuple<String, double, double>(name, x, y);
 
-
-        public double Distance(double x1, double x2, double y1, double y2)
+        public double Distance(Planet a, Planet b)
         {
-            double distance = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
+            double distance = Math.Sqrt(Math.Pow((b.x - a.x), 2) + Math.Pow((b.y - a.y), 2));
             return distance;
         }
 
 
 
-        public void StartLocation(double x, double y)
+        public (double, double) StartLocation(double x, double y)
         {
-            this.x = 0;
-            this.y = 0;
+            double xCoord = x;
+            double yCoord = y;
+            return (x, y);
         }
-
-
-
 
         public Planet(string name, double x, double y)
         {
@@ -47,8 +47,14 @@ namespace AwesomeSpaceGame
             Console.WriteLine("YZ Ceti- This planet is known for its consumption of bronze, but are in need of steel.");
             Console.ReadKey();
             return false;
+        }       
+        
+        private double duration (Planet a, Planet b, double speedOfSpaceShip)
+        {
+            double duration = distance / speedOfSpaceShip;
+            return duration;
         }
-       
 
+        
     }
 }

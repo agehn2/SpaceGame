@@ -124,20 +124,13 @@ namespace AwesomeSpaceGame
 
             Console.WriteLine(title);
             Console.ResetColor();
-            string script = "\n\n\n" +
-    "\n                                                   Earth needs YOU... " +
-    "\n                                                    Future WARRIOR" +
-    "\n                                               LOYALTY, DUTY, RESPECT," +
-    "\n                                         SELFLESS SERVICE, HONOR, INTEGRITY" +
-    "\n                                             and.....PERSONAL.....COURAGE!! " +
-    "\n                                     Visit the nearest ARMY recruiting center!! ";
-            foreach (char c in script)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write(c);
-                Thread.Sleep(0);
-            }
-            Console.WriteLine("\n\n\n                                         Press any key to sign your CONTRACT...");
+            string script = "\n\n\nEarth needs YOU..." +
+                        "\nFuture WARRIOR" +
+                        "\nLOYALTY, DUTY, RESPECT," +
+                        "\nSELFLESS SERVICE, HONOR, INTEGRITY" +
+                        "\nand.....PERSONAL.....COURAGE!! " +
+                        "\nVisit the nearest ARMY recruiting center!! "+
+                        "\n\n\nPress any key to sign your CONTRACT...";
             Console.ReadKey();
 
         }

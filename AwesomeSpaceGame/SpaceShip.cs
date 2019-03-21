@@ -25,6 +25,9 @@ namespace AwesomeSpaceGame
         public const string spaceShipName2 = "M1A1 Space Edition";           //High Cap, Average, $$
         public const string spaceShipName3 = "Space Force One";              //High Cap, Fast, $$$
 
+        public SpaceShip()
+        {
+        }
 
         public SpaceShip(string name, double capacity, double warpFactor)
         {
