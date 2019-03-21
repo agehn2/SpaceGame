@@ -49,8 +49,7 @@ namespace AwesomeSpaceGame
                         one.PrintCharacter();
                         Console.WriteLine("Make a selection");
                         Console.WriteLine("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");
-
-                        var choice = Console.ReadKey().Key;
+                        var choice = Console.ReadKey(true).Key;
 
                         switch (choice)
                         {
