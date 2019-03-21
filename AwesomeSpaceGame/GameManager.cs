@@ -36,7 +36,7 @@ namespace AwesomeSpaceGame
             if (d.MainMenu())
             {
 
-                SpaceShip.ChooseDifficulty();
+                Display.ChooseDifficulty();
                 ChooseSpaceShip();
                 
                 one.Display();
@@ -58,7 +58,7 @@ namespace AwesomeSpaceGame
                                 Console.Read();
                                 break;
                             case ConsoleKey.T:
-                                PlanetTravel();
+                                //PlanetTravel();
                                 Console.ReadKey();
                                 break;
                             case ConsoleKey.M:

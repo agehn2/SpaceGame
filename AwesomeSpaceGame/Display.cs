@@ -99,7 +99,7 @@ namespace AwesomeSpaceGame
             if (s.Length <= Console.WindowWidth)
             {
                 Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2,
-                    Console.CursorTop);
+                Console.CursorTop);
                 Console.WriteLine(s);
             }
             else
@@ -122,14 +122,21 @@ namespace AwesomeSpaceGame
                                     |_|                                                ";
 
             Console.WriteLine(title);
-            string script = "\n\n\nEarth needs YOU..."+
-                        "\nFuture WARRIOR" +
-                        "\nLOYALTY, DUTY, RESPECT," +
-                        "\nSELFLESS SERVICE, HONOR, INTEGRITY" +
-                        "\nand.....PERSONAL.....COURAGE!! " +
-                        "\nVisit the nearest ARMY recruiting center!! "+
-                        "\n\n\nPress any key to sign your CONTRACT...";
-            DisplayCenter(script);
+            Console.ResetColor();
+            string[] script = new[] { "\n\n\n", " Earth needs YOU...",
+                        "Future WARRIOR" ,
+                        "LOYALTY, DUTY, RESPECT," ,
+                        "SELFLESS SERVICE, HONOR, INTEGRITY" ,
+                        "and.....PERSONAL.....COURAGE!! " ,
+                        "Visit the nearest ARMY recruiting center!! ",
+                        "\n\n", "Press any key to sign your CONTRACT..." };
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+
+            foreach (var s in script)
+            {
+                DisplayCenter(s);
+            }
+
             Console.ResetColor();
             Console.ReadKey();
 
@@ -179,9 +186,15 @@ namespace AwesomeSpaceGame
 
         }
 
-        public void DisplayDiffuculty(string header, List<string> name)
+        
+         public static void ChooseDifficulty()
         {
-            Selector.ArrowKeyOptionMenu("Choose Your Difficulty:", name);
+            Console.WriteLine("Choose your difficulty:");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("=======================");
+            Console.ResetColor();
+            Console.WriteLine(" Easy\t |E|\n Medium\t |M|\n Hard\t |H|");
+            Console.WriteLine("\nSelection:");
         }
 
         public void MenuOptions(List<string> list)

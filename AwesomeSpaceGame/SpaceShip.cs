@@ -90,15 +90,7 @@ namespace AwesomeSpaceGame
             return duration;
         }
 
-        public static void ChooseDifficulty()
-        {
-            Console.WriteLine("Choose your difficulty:");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=======================");
-            Console.ResetColor();
-            Console.WriteLine(" Easy\t |E|\n Medium\t |M|\n Hard\t |H|");
-            Console.WriteLine("\nSelection:");
-        }
+       
     }
 }     
     
