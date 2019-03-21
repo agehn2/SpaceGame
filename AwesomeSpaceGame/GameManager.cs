@@ -23,8 +23,7 @@ namespace AwesomeSpaceGame
 
         Character one = new Character();
         SpaceShip myShip;
-        double 
-            warpFactor;
+        double warpFactor;
 
         public void Run()
         {
@@ -37,7 +36,7 @@ namespace AwesomeSpaceGame
             if (d.MainMenu())
             {
 
-                Display.ChooseDifficulty();
+                SpaceShip.ChooseDifficulty();
                 ChooseSpaceShip();
                 
                 one.Display();
@@ -59,7 +58,7 @@ namespace AwesomeSpaceGame
                                 Console.Read();
                                 break;
                             case ConsoleKey.T:
-                                //PlanetTravel();
+                                PlanetTravel();
                                 Console.ReadKey();
                                 break;
                             case ConsoleKey.M:
