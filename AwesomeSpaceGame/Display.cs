@@ -11,9 +11,8 @@ namespace AwesomeSpaceGame
     {
         List<string> Difficulty = new List<string> {"Easy", "Medium", "Hard"};
         List<string> mainMenu = new List<string>();  //TODO: Create enum Actions {Start, Quit};
+
         int selectedMenu = 0;
-
-
 
         public bool MainMenu()
         {
@@ -187,10 +186,9 @@ namespace AwesomeSpaceGame
 
         public void MenuOptions(List<string> list)
         {
-            bool quit = false;
-            
-                Console.Clear();
-                for (int i = 0; i < list.Count; ++i)
+            Console.Clear();
+
+            for (int i = 0; i < list.Count; ++i)
                 {
                     Console.WriteLine("");
                     if (i == selectedMenu)
@@ -208,7 +206,9 @@ namespace AwesomeSpaceGame
 
         public bool Controller (List<string> list)
         {
+            int selectedItem = 0;
             bool quit = false;
+
             do
             {
                 MenuOptions(list);
@@ -216,10 +216,18 @@ namespace AwesomeSpaceGame
                 switch (key)
                 {
                     case ConsoleKey.UpArrow:
-                        PreviousItem();
+                        selectedItem -= 1;
+                        if (selectedItem < 0)
+                        {
+                            selectedItem = list.Count;
+                        }
                         break;
                     case ConsoleKey.DownArrow:
-                        NextItem();
+                        selectedItem += 1;
+                        if (selectedItem >= list.Count)
+                        {
+                            selectedItem = 0;
+                        }
                         break;
                     case ConsoleKey.Enter:
                         quit = true;
@@ -228,29 +236,9 @@ namespace AwesomeSpaceGame
                 }
             } while (!quit);
 
-            return (selectedMenu == 0);
+            return (selectedItem == 0);
 
         }
-
-        private void NextItem()
-        {
-            selectedMenu += 1;
-            if (selectedMenu >= mainMenu.Count)
-            {
-                selectedMenu = 0;
-
-            }
-        }
-
-        private void PreviousItem()
-        {
-            selectedMenu -= 1;
-            if (selectedMenu < 0)
-            {
-                selectedMenu = mainMenu.Count;
-            }
-        }
-
 
 
     }

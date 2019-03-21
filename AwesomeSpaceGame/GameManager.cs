@@ -95,7 +95,6 @@ namespace AwesomeSpaceGame
             origin = currentPlanet;
             Console.WriteLine(currentPlanet.name);
             Display display = new Display();
-            display.MenuOptions(planetName);
             display.Controller(planetName);
 
             double timeToTravel = origin.Distance(origin, destination) / myShip.Speed(warpFactor);
