@@ -19,6 +19,7 @@ namespace AwesomeSpaceGame
         Planet destination;
 
         List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
+        List<string> planetName = new List<string> { "Earth", "Alpha Centauri 3", "40 Eridani", "YZ Ceti" };
 
         Character one = new Character();
         SpaceShip myShip;
@@ -26,10 +27,12 @@ namespace AwesomeSpaceGame
 
         public void Run()
         {
+            currentPlanet = earth;
             ItemFactory iF = new ItemFactory();
             Display d = new Display();
             d.ASCIIMain();
             bool leaveLoop = false;
+
             if (d.MainMenu())
             {
 
@@ -46,6 +49,7 @@ namespace AwesomeSpaceGame
                         one.PrintCharacter();
                         Console.WriteLine("Make a selection");
                         Console.WriteLine("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");
+
                         var choice = Console.ReadKey().Key;
 
                         switch (choice)
@@ -87,9 +91,25 @@ namespace AwesomeSpaceGame
 
         private void PlanetTravel()
         {
-            
+            Console.Clear();
+            origin = currentPlanet;
+            Console.WriteLine(currentPlanet.name);
+            Display display = new Display();
+            display.MenuOptions(planetName);
+            display.Controller(planetName);
+
             double timeToTravel = origin.Distance(origin, destination) / myShip.Speed(warpFactor);
-            one.LeaveLeft(timeToTravel);
+            double leaveLeftAfterTravel = one.LeaveLeft(timeToTravel);
+            if (leaveLeftAfterTravel<0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("You don't have enough time to travel");
+            }
+            else if (leaveLeftAfterTravel>=0)
+            {
+                currentPlanet = destination;
+                Console.WriteLine($"Welcome to {currentPlanet}.");
+            }
         }
 
         public void ChooseSpaceShip()

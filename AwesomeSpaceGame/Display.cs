@@ -23,7 +23,7 @@ namespace AwesomeSpaceGame
             return UserInputHandler();
         }
 
-        private bool UserInputHandler()
+        public bool UserInputHandler()
         {
             bool quit = false;
             do
@@ -184,5 +184,74 @@ namespace AwesomeSpaceGame
         {
             Selector.ArrowKeyOptionMenu("Choose Your Difficulty:", name);
         }
+
+        public void MenuOptions(List<string> list)
+        {
+            bool quit = false;
+            
+                Console.Clear();
+                for (int i = 0; i < list.Count; ++i)
+                {
+                    Console.WriteLine("");
+                    if (i == selectedMenu)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+                    DisplayCenter($"{list[i]}");
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }      
+        }
+    
+
+        public bool Controller (List<string> list)
+        {
+            bool quit = false;
+            do
+            {
+                MenuOptions(list);
+                var key = Console.ReadKey().Key;
+                switch (key)
+                {
+                    case ConsoleKey.UpArrow:
+                        PreviousItem();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        NextItem();
+                        break;
+                    case ConsoleKey.Enter:
+                        quit = true;
+                        break;
+
+                }
+            } while (!quit);
+
+            return (selectedMenu == 0);
+
+        }
+
+        private void NextItem()
+        {
+            selectedMenu += 1;
+            if (selectedMenu >= mainMenu.Count)
+            {
+                selectedMenu = 0;
+
+            }
+        }
+
+        private void PreviousItem()
+        {
+            selectedMenu -= 1;
+            if (selectedMenu < 0)
+            {
+                selectedMenu = mainMenu.Count;
+            }
+        }
+
+
+
     }
 }

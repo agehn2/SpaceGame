@@ -59,9 +59,10 @@ namespace AwesomeSpaceGame
             money += deposit;
         }
 
-        public void LeaveLeft(double daysTravel)
+        public double LeaveLeft(double daysTravel)
         {
-            leaveLeft -= daysTravel;   
+            leaveLeft -= daysTravel;
+            return leaveLeft;
         }
 
         //Take money from player
