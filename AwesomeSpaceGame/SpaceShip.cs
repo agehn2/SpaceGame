@@ -90,7 +90,7 @@ namespace AwesomeSpaceGame
             return duration;
         }
 
-        public static void ChooseSpaceShip()
+        public static void ChooseDifficulty()
         {
             Console.WriteLine("Choose your difficulty:");
             Console.ForegroundColor = ConsoleColor.Red;

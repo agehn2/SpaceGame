@@ -32,9 +32,10 @@ namespace AwesomeSpaceGame
             bool leaveLoop = false;
             if (d.MainMenu())
             {
-                SpaceShip.ChooseSpaceShip();
+
+                SpaceShip.ChooseDifficulty();
+                ChooseSpaceShip();
                 
-                Console.Clear();
                 one.Display();
                 one.PrintCharacter();
                 do
@@ -51,6 +52,7 @@ namespace AwesomeSpaceGame
                         {
                             case ConsoleKey.D:
                                 Planet.PlanetDescription();
+                                Console.Read();
                                 break;
                             case ConsoleKey.T:
                                 PlanetTravel();
@@ -107,12 +109,15 @@ namespace AwesomeSpaceGame
                     {
                         case ConsoleKey.E:
                             myShip.SelectSpaceShip(key);
+                            Console.Clear();
                             break;
                         case ConsoleKey.M:
                             myShip.SelectSpaceShip(key);
+                            Console.Clear();
                             break;
                         case ConsoleKey.H:
                             myShip.SelectSpaceShip(key);
+                            Console.Clear();
                             break;
                         default:
                             break;

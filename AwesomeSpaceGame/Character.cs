@@ -10,21 +10,21 @@ namespace AwesomeSpaceGame
     {
         //characteristics    
         public string name;
-        const int startLeaveDays = 50;
         double money = 1000;
-        double leaveLeft;
+        double leaveLeft = 50;
         
 
         //constructor
-        public void CreateCharacter(string userName, double money, int leaveDays)
+        public void CreateCharacter(string userName, double money, int leaveLeft)
         {
             name = userName;
             this.money = money;
-            this.leaveLeft = startLeaveDays;
+            this.leaveLeft = leaveLeft;
         }
 
         public string Intro(string userName)
         {
+            name = userName;
             string intro = $"DS SHARPEO: Private {userName}. Your name sounds stupid, you piece of... but it's okay." +
                 $"Forget what .\n .......\n\n\n\n\n\n\n\n\n\n\n\n\n ........3 years later\n It is time for you to get out of the military.But if you get out now you will not be able to pay for “blank”.\n You are on leave for 50 days and by the end you have to earn $200,000 or reenlist\n ...FOR LIFE\n\n\n\n\n\n\n\n\n Press Enter to Continue";
             return intro;
@@ -36,7 +36,7 @@ namespace AwesomeSpaceGame
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("========================================================================================================================");
             Console.ResetColor();
-            Console.WriteLine($"Name: {this.name}\t\t\t\t\t ${this.money}\t\t\t\t\t Leave Days Left: {this.leaveLeft} ");
+            Console.WriteLine($"Name: {name}\t\t\t\t\t ${money}\t\t\t\t\t Leave Days Left: {leaveLeft} ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("========================================================================================================================");
             Console.ResetColor();

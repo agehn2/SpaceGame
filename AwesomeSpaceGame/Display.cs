@@ -123,14 +123,15 @@ namespace AwesomeSpaceGame
                                     |_|                                                ";
 
             Console.WriteLine(title);
-            Console.ResetColor();
-            string script = "\n\n\nEarth needs YOU..." +
+            string script = "\n\n\nEarth needs YOU..."+
                         "\nFuture WARRIOR" +
                         "\nLOYALTY, DUTY, RESPECT," +
                         "\nSELFLESS SERVICE, HONOR, INTEGRITY" +
                         "\nand.....PERSONAL.....COURAGE!! " +
                         "\nVisit the nearest ARMY recruiting center!! "+
                         "\n\n\nPress any key to sign your CONTRACT...";
+            DisplayCenter(script);
+            Console.ResetColor();
             Console.ReadKey();
 
         }
@@ -181,7 +182,6 @@ namespace AwesomeSpaceGame
 
         public void DisplayDiffuculty(string header, List<string> name)
         {
-            
             Selector.ArrowKeyOptionMenu("Choose Your Difficulty:", name);
         }
     }
