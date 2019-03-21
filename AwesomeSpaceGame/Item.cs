@@ -9,21 +9,21 @@ namespace AwesomeSpaceGame
     class Item
     {
         public string itemName;
-        public double cost;
+        public int cost;
         public double weight;
         public double price;
-
+        
        
 
-        public Item(string nameOfItem, double costOfItem, double sellPrice, double weightOfItem)
+        public Item(string nameOfItem, int a, int b , double sellPrice, double weightOfItem)
         {
             itemName = nameOfItem;
-            cost = costOfItem;
+            cost = newMarket.RandomNumber(a, b);           //.RandomNumber(a,a);
             price = sellPrice;
             weight = weightOfItem;
         }
 
-        
+           
         
 
         //public void AddItem(Item thing)

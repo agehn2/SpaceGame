@@ -36,7 +36,8 @@ namespace AwesomeSpaceGame
                     {
                         Console.Clear();
                         one.PrintCharacter();
-                        Console.WriteLine("Make a selection");
+                        Console.WriteLine("Make a selection");                    
+                         
                         Console.WriteLine("1.Planet Descriptions 2,travel to planet");
                         int choice = int.Parse(Console.ReadLine());
 
@@ -52,6 +53,8 @@ namespace AwesomeSpaceGame
                                 Console.ReadKey();
                                 break;
                             case 3:
+                                RandomNumber(10, 20);
+                                Console.ReadKey();
                                 // TODO: ShopAtCurrentPlanet
                                 break;
                             default:
@@ -103,6 +106,11 @@ namespace AwesomeSpaceGame
                 }
             } while (!exit);
         }
+        public int RandomNumber(int min, int max)  
+        {  
+            Random random = new Random();  
+            return random.Next(min, max);  
+        }  
     }       
 }
 
