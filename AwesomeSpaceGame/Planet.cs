@@ -14,21 +14,10 @@ namespace AwesomeSpaceGame
         public string name;
         public double distance;
 
-        //Tuple<string, double, double> planet = new Tuple<String, double, double>(name, x, y);
-
         public double Distance(Planet a, Planet b)
         {
             double distance = Math.Sqrt(Math.Pow((b.x - a.x), 2) + Math.Pow((b.y - a.y), 2));
             return distance;
-        }
-
-
-
-        public (double, double) StartLocation(double x, double y)
-        {
-            double xCoord = x;
-            double yCoord = y;
-            return (x, y);
         }
 
         public Planet(string name, double x, double y)

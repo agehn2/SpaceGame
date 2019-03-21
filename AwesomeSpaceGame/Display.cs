@@ -85,8 +85,8 @@ namespace AwesomeSpaceGame
                 Console.WriteLine("");
                 if (i == selectedMenu)
                 {
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 }
                 DisplayCenter($"{mainMenu[i]}");
 

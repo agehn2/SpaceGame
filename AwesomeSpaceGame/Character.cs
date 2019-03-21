@@ -12,7 +12,7 @@ namespace AwesomeSpaceGame
         public string name;
         const int startLeaveDays = 50;
         double money = 1000;
-        double leaveLeft = 50;
+        double leaveLeft;
         
 
         //constructor

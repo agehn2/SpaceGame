@@ -13,9 +13,17 @@ namespace AwesomeSpaceGame
         Planet planet1 = new Planet("Alpha Centauri 3", 25, 55); //4.37 ly
         Planet planet2 = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
         Planet planet3 = new Planet("YZ Ceti", -455.1, 900.5); //12.1  
+
+        Planet currentPlanet;
+        Planet origin;
+        Planet destination;
+
         List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
+
         Character one = new Character();
         SpaceShip myShip;
+        double warpFactor;
+
         public void Run()
         {
             ItemFactory iF = new ItemFactory();
@@ -25,8 +33,7 @@ namespace AwesomeSpaceGame
             if (d.MainMenu())
             {
                 SpaceShip.ChooseSpaceShip();
-                ChooseSpaceShip();
-                Console.ReadKey();
+                
                 Console.Clear();
                 one.Display();
                 one.PrintCharacter();
@@ -46,7 +53,6 @@ namespace AwesomeSpaceGame
                                 Planet.PlanetDescription();
                                 break;
                             case ConsoleKey.T:
-                                Planet.ViewPlanet();
                                 PlanetTravel();
                                 Console.ReadKey();
                                 break;
@@ -77,9 +83,10 @@ namespace AwesomeSpaceGame
         
         }
 
-        private void PlanetTravel(Planet origin, Planet destination)
+        private void PlanetTravel()
         {
-            double timeToTravel = origin.Distance(origin, destination) / ChosenSpaceShip.Speed(ChosenSpaceShip.warpFactor);
+            
+            double timeToTravel = origin.Distance(origin, destination) / myShip.Speed(warpFactor);
             one.LeaveLeft(timeToTravel);
         }
 
@@ -92,17 +99,20 @@ namespace AwesomeSpaceGame
                 var key = Console.ReadKey(true).Key;
                 if ((key == ConsoleKey.E) || (key == ConsoleKey.M) || (key == ConsoleKey.H))
                 {
+                    myShip = new SpaceShip();
+                    currentPlanet = earth;
+
                     exit = true;
                     switch (key)
                     {
                         case ConsoleKey.E:
-                            myShip = new SpaceShip("Falcon",1000,9.5);
+                            myShip.SelectSpaceShip(key);
                             break;
                         case ConsoleKey.M:
-                            Console.WriteLine("Medium");
+                            myShip.SelectSpaceShip(key);
                             break;
                         case ConsoleKey.H:
-                            Console.WriteLine("Hard");
+                            myShip.SelectSpaceShip(key);
                             break;
                         default:
                             break;
