@@ -10,26 +10,26 @@ namespace AwesomeSpaceGame
     {
         public string itemName;
         public int cost;
-        public double weight;
-        public double price;
+        public int price;
+        public int units;
         
        
 
-        public Item(string nameOfItem, int a, int b , double sellPrice, double weightOfItem)
+        public Item(string nameOfItem, int a, int b , int c, int d, int unit)
         {
             itemName = nameOfItem;
             cost = newMarket.RandomNumber(a, b);           //.RandomNumber(a,a);
-            price = sellPrice;
-            weight = weightOfItem;
+            price = newMarket.RandomNumber(c, d);
+            units = unit;
         }
 
            
         
 
-        //public void AddItem(Item thing)
-        //{
-        //    items.Add(thing);
-        //}
+        public void AddItem(Item thing)
+        {
+            items.Add(thing);
+        }
 
 
 

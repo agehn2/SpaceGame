@@ -36,7 +36,7 @@ namespace AwesomeSpaceGame
             if (d.MainMenu())
             {
 
-                SpaceShip.ChooseDifficulty();
+                Display.ChooseDifficulty();
                 ChooseSpaceShip();
                 
                 one.Display();
