@@ -13,11 +13,11 @@ namespace AwesomeSpaceGame
         Planet planet1 = new Planet("Alpha Centauri 3", 25, 55); //4.37 ly
         Planet planet2 = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
         Planet planet3 = new Planet("YZ Ceti", -455.1, 900.5); //12.1  
-
+        
         Planet currentPlanet;
         Planet origin;
         Planet destination;
-
+        Display d = new Display();
         List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         List<string> planetName = new List<string> { "Earth", "Alpha Centauri 3", "40 Eridani", "YZ Ceti" };
 
@@ -28,9 +28,8 @@ namespace AwesomeSpaceGame
 
         public void Run()
         {
-            currentPlanet = earth;
-            //ItemFactory iF = new ItemFactory();
-            Display d = new Display();
+            currentPlanet = planet1;
+            ItemFactory iF = new ItemFactory();
             d.ASCIIMain();
             bool leaveLoop = false;
 
@@ -63,8 +62,11 @@ namespace AwesomeSpaceGame
                                 Console.ReadKey();
                                 break;
                             case ConsoleKey.M:
-                                RandomNumber(10, 20);
-                                // TODO: ShopAtCurrentPlanet
+                                Console.Clear();
+                                one.PrintCharacter();
+                                iF.DisplayCurrentMarket(iF.CurrentMarket(currentPlanet, earth, planet1, planet2, planet3 ));
+                                Console.ReadKey();
+                                
                                 break;
                             case ConsoleKey.Q:
                                 leaveLoop = true;
