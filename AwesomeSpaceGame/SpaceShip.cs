@@ -16,7 +16,7 @@ namespace AwesomeSpaceGame
         private const double n = 1.7952294708;
         private const double a = 0.03658749373;
 
-        public const double warpFactorHard = 9.2;
+        public const double warpFactorHard = 9.0;
         public const double warpFactorMedium = 9.5;
         public const double warpFactorEasy = 9.99;
 
@@ -40,6 +40,7 @@ namespace AwesomeSpaceGame
 
         public SpaceShip(string name, double capacity, double warpFactor)
         {
+
         }
 
         public (string, double, double) SelectSpaceShip(ConsoleKey key)
@@ -62,7 +63,7 @@ namespace AwesomeSpaceGame
 
         public double Speed(double warpFactor)
         {
-
+            warpFactor = warpFactorHard; //TODO: Customize
             speedOfSpaceShip = Math.Pow(warpFactor, 10 / 3) + Math.Pow(10 - warpFactor, -11 / 3); //Math.Pow(warpFactor, (Math.Pow(((10/3) + (Math.Pow(Math.E,(-1/(1000*(Math.Pow(warpFactor-9,2))))))*a*(-Math.Log(10-warpFactor))),n))) ;  
             if (warpFactor >= 10 || warpFactor < 9)
             {

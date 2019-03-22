@@ -9,34 +9,41 @@ namespace AwesomeSpaceGame
 {
     class GameManager
     {
-
-        Planet earth = new Planet("Earth", 0.0, 0.0);
-        Planet alphaCentauri = new Planet("Alpha Centauri 3", 25, 55); //4.37 ly
-        Planet eridani = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
-        Planet yZCeti = new Planet("YZ Ceti", -455.1, 900.5); //12.1  
         Planet currentPlanet;
         Planet origin;
         Planet destination;
         
         Display d = new Display();
         List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
-        List<string> planetName = new List<string> { "Earth", "Alpha Centauri 3", "40 Eridani", "YZ Ceti" };
+        List<Planet> planetList = new List<Planet>();
+        List<SpaceShip> spaceShipsList = new List<SpaceShip>();
 
         int selectedItem;
         Character one = new Character();
         SpaceShip myShip;
-        double warpFactor=9.0;
+        double warpFactor;
+
+        public GameManager()
+        {
+            planetList.Add(new Planet("Earth", 0.0, 0.0));
+            planetList.Add(new Planet("Alpha Centauri 3", 25.3, 55.4));
+            planetList.Add(new Planet("40 Eridani", 90.5, -150.2));
+            planetList.Add(new Planet("YZ Ceti", -455.1, 900.5));
+
+            spaceShipsList.Add(new SpaceShip("Blue Falcon", SpaceShip.capacityHard, SpaceShip.warpFactorHard));
+            spaceShipsList.Add(new SpaceShip("M1A1 Space Edition", SpaceShip.capacityMedium, SpaceShip.warpFactorMedium));
+            spaceShipsList.Add(new SpaceShip("Space Force One", SpaceShip.capacityEasy, SpaceShip.warpFactorEasy));
+        }
 
         public void Run()
         {
-            currentPlanet = earth;
-            ItemFactory itemFactory = new ItemFactory();
+            currentPlanet = planetList[0];
+            ItemFactory iF = new ItemFactory();
             d.ASCIIMain();
             bool leaveLoop = false;
 
             if (d.MainMenu())
             {
-
                 Display.ChooseDifficulty();
                 ChooseSpaceShip();
                 
@@ -65,7 +72,7 @@ namespace AwesomeSpaceGame
                             case ConsoleKey.M:
                                 Console.Clear();
                                 one.PrintCharacter();
-                                itemFactory.DisplayCurrentMarket(itemFactory.CurrentMarket(currentPlanet, earth, alphaCentauri, eridani, yZCeti ));
+                                iF.DisplayCurrentMarket(iF.CurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
                                 Console.ReadKey();
                                 
                                 break;
@@ -99,41 +106,22 @@ namespace AwesomeSpaceGame
             Console.Clear();
             origin = currentPlanet;
             Console.WriteLine(currentPlanet.name);
-            Controller(planetName);
+            Controller(planetList);
 
-            switch (Controller(planetName))
+            
+            switch (Controller(planetList))
             {
                 case 0:
-                    
-                    destination = earth;
-                    currentPlanet = destination;
-                    double travelTime = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
-                    Console.WriteLine(travelTime);
-                    one.LeaveLeft(travelTime);
-                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+                    TravelToChoice(0);
                     break;
                 case 1:
-                    destination = alphaCentauri;
-                    currentPlanet = destination;
-                    double travelTime1 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
-                    one.LeaveLeft(travelTime1);
-                    Console.WriteLine(travelTime1);
-                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+                    TravelToChoice(1);
                     break;
                 case 2:
-                    destination = eridani;
-                    currentPlanet = destination;
-                    double travelTime2 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
-                    one.LeaveLeft(travelTime2);
-                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+                    TravelToChoice(2);
                     break;
                 case 3:
-                    destination = yZCeti;
-                    currentPlanet = destination;
-                    double travelTime3 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
-                    one.LeaveLeft(travelTime3);
-                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
-
+                    TravelToChoice(3);
                     break;
 
             }
@@ -150,6 +138,16 @@ namespace AwesomeSpaceGame
             //}
         }
 
+        private void TravelToChoice(int i)
+        {
+            destination = planetList[i];
+            currentPlanet = destination;
+            double travelTime = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);//TODO: WarpFactor
+            Console.WriteLine(travelTime);
+            one.LeaveLeft(travelTime);
+            Console.WriteLine($"Welcome to {planetList[i].name}.");
+        }
+
         public void ChooseSpaceShip()
         {
             bool exit = false;
@@ -160,21 +158,21 @@ namespace AwesomeSpaceGame
                 if ((key == ConsoleKey.E) || (key == ConsoleKey.M) || (key == ConsoleKey.H))
                 {
                     myShip = new SpaceShip();
-                    currentPlanet = earth;
+                    currentPlanet = planetList[0];
 
                     exit = true;
                     switch (key)
                     {
                         case ConsoleKey.E:
-                            myShip.SelectSpaceShip(key);
+                            myShip=spaceShipsList[2];
                             Console.Clear();
                             break;
                         case ConsoleKey.M:
-                            myShip.SelectSpaceShip(key);
+                            myShip = spaceShipsList[1];
                             Console.Clear();
                             break;
                         case ConsoleKey.H:
-                            myShip.SelectSpaceShip(key);
+                            myShip = spaceShipsList[0];
                             Console.Clear();
                             break;
                         default:
@@ -193,7 +191,7 @@ namespace AwesomeSpaceGame
             return random.Next(min, max);  
         }
 
-        private void MenuOptions(List<string> list)
+        private void MenuOptions(List<Planet> list)
         {
             Console.Clear();
 
@@ -205,7 +203,7 @@ namespace AwesomeSpaceGame
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
-                new Display().DisplayCenter($"{list[i]}");
+                new Display().DisplayCenter($"{list[i].name}   ||   {currentPlanet.Distance(currentPlanet,list[i])/myShip.Speed(warpFactor):f2}");
 
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.BackgroundColor = ConsoleColor.Black;               
@@ -213,7 +211,7 @@ namespace AwesomeSpaceGame
         }
 
 
-        private int Controller(List<string> list)
+        private int Controller(List<Planet> list)
         {
             bool quit = false;
 
