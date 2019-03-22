@@ -21,9 +21,10 @@ namespace AwesomeSpaceGame
         List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         List<string> planetName = new List<string> { "Earth", "Alpha Centauri 3", "40 Eridani", "YZ Ceti" };
 
+        int selectedItem;
         Character one = new Character();
         SpaceShip myShip;
-        double warpFactor;
+        double warpFactor=0;
 
         public void Run()
         {
@@ -70,6 +71,8 @@ namespace AwesomeSpaceGame
                                 break;
                             default:
                                 break;
+
+                               
                         }
                     }
                     catch (Exception)
@@ -93,8 +96,33 @@ namespace AwesomeSpaceGame
             Console.Clear();
             origin = currentPlanet;
             Console.WriteLine(currentPlanet.name);
-            Display display = new Display();
-            display.Controller(planetName);
+            Controller(planetName);
+
+            switch (Controller(planetName))
+            {
+                case 0:
+                    destination = earth;
+                    currentPlanet = destination;
+                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+                    break;
+                case 1:
+                    destination = planet1;
+                    currentPlanet = destination;
+                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+                    break;
+                case 2:
+                    destination = planet2;
+                    currentPlanet = destination;
+                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+                    break;
+                case 3:
+                    destination = planet3;
+                    currentPlanet = destination;
+                    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+
+                    break;
+
+            }
 
             double timeToTravel = origin.Distance(origin, destination) / myShip.Speed(warpFactor);
             double leaveLeftAfterTravel = one.LeaveLeft(timeToTravel);
@@ -106,7 +134,7 @@ namespace AwesomeSpaceGame
             else if (leaveLeftAfterTravel>=0)
             {
                 currentPlanet = destination;
-                Console.WriteLine($"Welcome to {currentPlanet}.");
+                Console.WriteLine($"Welcome to {currentPlanet.name}.");
             }
         }
 
@@ -151,8 +179,66 @@ namespace AwesomeSpaceGame
         {  
             Random random = new Random();  
             return random.Next(min, max);  
-        }  
-    }       
+        }
+
+        private void MenuOptions(List<string> list)
+        {
+            Console.Clear();
+
+            for (int i = 0; i < list.Count; ++i)
+            {
+                Console.WriteLine("");
+                if (i == selectedItem)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                }
+                new Display().DisplayCenter($"{list[i]}");
+
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.BackgroundColor = ConsoleColor.Black;               
+            }
+        }
+
+
+        private int Controller(List<string> list)
+        {
+            bool quit = false;
+
+            do
+            {
+                MenuOptions(list);
+                var key = Console.ReadKey().Key;
+                switch (key)
+                {
+                    case ConsoleKey.UpArrow:
+                        selectedItem -= 1;
+                        if (selectedItem < 0)
+                        {
+                            selectedItem = list.Count;
+                        }
+                        break;
+                    case ConsoleKey.DownArrow:
+                        selectedItem += 1;
+                        if (selectedItem >= list.Count)
+                        {
+                            selectedItem = 0;
+                        }
+                        break;
+                    case ConsoleKey.Enter:
+                        quit = true;
+                        break;
+
+                }
+            } while (!quit);
+
+            return selectedItem;
+
+        }
+
+
+
+    }
 }
 
                     

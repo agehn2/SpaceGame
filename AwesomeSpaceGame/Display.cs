@@ -13,6 +13,7 @@ namespace AwesomeSpaceGame
         List<string> mainMenu = new List<string>();  //TODO: Create enum Actions {Start, Quit};
 
         int selectedMenu = 0;
+        int selectedItem = 0;
 
         public bool MainMenu()
         {
@@ -202,24 +203,23 @@ namespace AwesomeSpaceGame
             Console.Clear();
 
             for (int i = 0; i < list.Count; ++i)
+            {                
+                Console.WriteLine("");
+                if (i == selectedItem)
                 {
-                    Console.WriteLine("");
-                    if (i == selectedMenu)
-                    {
-                        Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                    }
-                    DisplayCenter($"{list[i]}");
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                }
+                DisplayCenter($"{list[i]}");
 
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.BackgroundColor = ConsoleColor.Black;
-                }      
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.BackgroundColor = ConsoleColor.Black;
+            }      
         }
     
 
-        public bool Controller (List<string> list)
+        public int Controller (List<string> list)
         {
-            int selectedItem = 0;
             bool quit = false;
 
             do
@@ -249,7 +249,7 @@ namespace AwesomeSpaceGame
                 }
             } while (!quit);
 
-            return (selectedItem == 0);
+            return selectedItem;
 
         }
 
