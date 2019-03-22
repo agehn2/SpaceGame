@@ -8,11 +8,11 @@ namespace AwesomeSpaceGame
 {
     class ItemFactory
     {
-        newMarket earthMarket = new newMarket();
-        newMarket alphaCentauriMarket = new newMarket();
-        newMarket eridaniMarket = new newMarket();
-        newMarket cetiMarket = new newMarket();
-        newMarket newPlanetMarket = new newMarket();
+        Market earthMarket = new Market();
+        Market alphaCentauriMarket = new Market();
+        Market eridaniMarket = new Market();
+        Market cetiMarket = new Market();
+        Market newPlanetMarket = new Market();
         
         //Earths Market
         Item sE = new Item("steel:  ", 75, 80, 65,70, 2);
@@ -65,7 +65,6 @@ namespace AwesomeSpaceGame
             alphaCentauriMarket.items.Add(gAC);
             alphaCentauriMarket.items.Add(iAC);
             alphaCentauriMarket.items.Add(cAC);
-            //alphaCentauri.items.Add(cMC);
         }
 
         private void AddToEridani()
@@ -79,10 +78,12 @@ namespace AwesomeSpaceGame
 
         private void AddToCeti()
         {
-            //ceti.items.Add(sC);
-            //ceti.items.Add(bC);
-            //ceti.items.Add(gC);
-            //ceti.items.Add(iC);
+            cetiMarket.items.Add(sC);
+            cetiMarket.items.Add(bC);
+            cetiMarket.items.Add(iC);
+            cetiMarket.items.Add(gC);
+            cetiMarket.items.Add(cC);
+            cetiMarket.items.Add(mC);
         }
 
         
@@ -95,7 +96,7 @@ namespace AwesomeSpaceGame
             Console.WriteLine("========================================================================================================================");
             for (int i = 0; i < (earthMarket.items.Count); i++)
             {
-                Console.WriteLine($"{earthMarket.items[i].itemName}\t --\t\t  {earthMarket.items[i].cost}\t\t --\t\t  {earthMarket.items[i].price}\t\t --\t\t  {earthMarket.items[i].units}\n");
+                Console.WriteLine($"{earthMarket.items[i].itemName}\t --\t\t  {earthMarket.items[i].askPrice}\t\t --\t\t  {earthMarket.items[i].offerPrice}\t\t --\t\t  {earthMarket.items[i].units}\n");
             }
             Console.WriteLine("\n\nMake A Selection:");
             Console.ForegroundColor = ConsoleColor.Red;
@@ -105,7 +106,7 @@ namespace AwesomeSpaceGame
             Console.ReadKey();
         }
 
-        public void DisplayCurrentMarket(newMarket a)
+        public void DisplayCurrentMarket(Market a)
         {
             
             //Console.WriteLine("========================================================================================================================");
@@ -113,7 +114,7 @@ namespace AwesomeSpaceGame
             Console.WriteLine("========================================================================================================================");
             for (int i = 0; i < (a.items.Count); i++)
             {
-                Console.WriteLine($"{a.items[i].itemName}\t --\t\t  {a.items[i].cost}\t\t --\t\t  {a.items[i].price}\t\t --\t\t  {a.items[i].units}\n");
+                Console.WriteLine($"{a.items[i].itemName}\t --\t\t  {a.items[i].askPrice}\t\t --\t\t  {a.items[i].offerPrice}\t\t --\t\t  {a.items[i].units}\n");
             }
             Console.WriteLine("\n\nMake A Selection:");
             Console.ForegroundColor = ConsoleColor.Red;
@@ -123,7 +124,7 @@ namespace AwesomeSpaceGame
             Console.ReadKey();
         }
 
-         public newMarket CurrentMarket(Planet e, Planet a, Planet b, Planet c, Planet d)
+         public Market CurrentMarket(Planet e, Planet a, Planet b, Planet c, Planet d)
          {
             if (e == a)
             {

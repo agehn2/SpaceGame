@@ -8,10 +8,10 @@ namespace AwesomeSpaceGame
 {
     class SpaceShip
     {
-        string name;
+        
         double capacity;
         double speedOfSpaceShip;
-        string currentLocation;
+        
 
         private const double n = 1.7952294708;
         private const double a = 0.03658749373;

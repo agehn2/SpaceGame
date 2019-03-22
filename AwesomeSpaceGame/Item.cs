@@ -9,19 +9,23 @@ namespace AwesomeSpaceGame
     class Item
     {
         public string itemName;
-        public int cost;
-        public int price;
+        public int askPrice;
+        public int offerPrice;
         public int units;
         
-       
-
         public Item(string nameOfItem, int a, int b , int c, int d, int unit)
         {
             itemName = nameOfItem;
-            cost = newMarket.RandomNumber(a, b);           //.RandomNumber(a,a);
-            price = newMarket.RandomNumber(c, d);
+            askPrice = RandomNumber(a, b);           //.RandomNumber(a,a);
+            offerPrice = RandomNumber(c, d);
             units = unit;
         }
+       
+         public static int RandomNumber(int min, int max)  
+        {  
+            Random random = new Random();  
+            return random.Next(min, max);  
+        } 
 
            
         

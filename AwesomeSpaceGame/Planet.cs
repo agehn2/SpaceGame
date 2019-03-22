@@ -8,7 +8,7 @@ namespace AwesomeSpaceGame
 {
     public class Planet
     {
-        static List<string> planetName = new List <string>();
+        static List<string> planetName = new List <string>();      
 
         public double x, y;   // TODO: Struct Coords
         public string name;
@@ -25,6 +25,7 @@ namespace AwesomeSpaceGame
             this.name = name;
             this.x = x;
             this.y = y;
+            
 
         }
 
@@ -43,6 +44,8 @@ namespace AwesomeSpaceGame
             double duration = distance / speedOfSpaceShip;
             return duration;
         }
+
+
 
         
     }

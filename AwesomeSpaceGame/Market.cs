@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AwesomeSpaceGame
 {
-    class newMarket
+    class Market
     {
         public List<Item> items = new List<Item>();
 
@@ -15,11 +15,7 @@ namespace AwesomeSpaceGame
             items.Add(thing);
         }
 
-        public static int RandomNumber(int min, int max)  
-        {  
-            Random random = new Random();  
-            return random.Next(min, max);  
-        }  
+        
 
     }
 }

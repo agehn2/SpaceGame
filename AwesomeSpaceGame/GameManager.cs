@@ -9,14 +9,15 @@ namespace AwesomeSpaceGame
 {
     class GameManager
     {
+
         Planet earth = new Planet("Earth", 0.0, 0.0);
-        Planet planet1 = new Planet("Alpha Centauri 3", 25, 55); //4.37 ly
-        Planet planet2 = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
-        Planet planet3 = new Planet("YZ Ceti", -455.1, 900.5); //12.1  
-        
+        Planet alphaCentauri = new Planet("Alpha Centauri 3", 25, 55); //4.37 ly
+        Planet eridani = new Planet("40 Eridani", 90.5, -150.2); //38.9 ly
+        Planet yZCeti = new Planet("YZ Ceti", -455.1, 900.5); //12.1  
         Planet currentPlanet;
         Planet origin;
         Planet destination;
+        
         Display d = new Display();
         List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         List<string> planetName = new List<string> { "Earth", "Alpha Centauri 3", "40 Eridani", "YZ Ceti" };
@@ -28,8 +29,8 @@ namespace AwesomeSpaceGame
 
         public void Run()
         {
-            currentPlanet = planet1;
-            ItemFactory iF = new ItemFactory();
+            currentPlanet = earth;
+            ItemFactory itemFactory = new ItemFactory();
             d.ASCIIMain();
             bool leaveLoop = false;
 
@@ -64,7 +65,7 @@ namespace AwesomeSpaceGame
                             case ConsoleKey.M:
                                 Console.Clear();
                                 one.PrintCharacter();
-                                iF.DisplayCurrentMarket(iF.CurrentMarket(currentPlanet, earth, planet1, planet2, planet3 ));
+                                itemFactory.DisplayCurrentMarket(itemFactory.CurrentMarket(currentPlanet, earth, alphaCentauri, eridani, yZCeti ));
                                 Console.ReadKey();
                                 
                                 break;
@@ -112,7 +113,7 @@ namespace AwesomeSpaceGame
                     Console.WriteLine($"Welcome to {currentPlanet.name}.");
                     break;
                 case 1:
-                    destination = planet1;
+                    destination = alphaCentauri;
                     currentPlanet = destination;
                     double travelTime1 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
                     one.LeaveLeft(travelTime1);
@@ -120,14 +121,14 @@ namespace AwesomeSpaceGame
                     Console.WriteLine($"Welcome to {currentPlanet.name}.");
                     break;
                 case 2:
-                    destination = planet2;
+                    destination = eridani;
                     currentPlanet = destination;
                     double travelTime2 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
                     one.LeaveLeft(travelTime2);
                     Console.WriteLine($"Welcome to {currentPlanet.name}.");
                     break;
                 case 3:
-                    destination = planet3;
+                    destination = yZCeti;
                     currentPlanet = destination;
                     double travelTime3 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
                     one.LeaveLeft(travelTime3);
