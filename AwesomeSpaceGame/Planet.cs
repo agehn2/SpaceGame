@@ -38,7 +38,7 @@ namespace AwesomeSpaceGame
             return false;
         }       
         
-        private double duration (Planet a, Planet b, double speedOfSpaceShip)
+        private double Duration (Planet a, Planet b, double speedOfSpaceShip)
         {
             double duration = distance / speedOfSpaceShip;
             return duration;
