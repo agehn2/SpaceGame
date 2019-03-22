@@ -13,7 +13,7 @@ namespace AwesomeSpaceGame
         public double x, y;   // TODO: Struct Coords
         public string name;
         public double distance;
-
+        Market planetMarket;
         public double Distance(Planet a, Planet b)
         {
             double distance = Math.Sqrt(Math.Pow((b.x - a.x), 2) + Math.Pow((b.y - a.y), 2));
@@ -25,8 +25,7 @@ namespace AwesomeSpaceGame
             this.name = name;
             this.x = x;
             this.y = y;
-            
-
+            planetMarket = new Market();
         }
 
         public static bool PlanetDescription()
@@ -45,7 +44,7 @@ namespace AwesomeSpaceGame
             return duration;
         }
 
-
+       
 
         
     }

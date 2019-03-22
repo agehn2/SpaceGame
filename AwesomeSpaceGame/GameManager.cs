@@ -71,6 +71,7 @@ namespace AwesomeSpaceGame
                                 break;
                             case ConsoleKey.M:
                                 Console.Clear();
+                                planetList[0].;
                                 one.PrintCharacter();
                                 iF.DisplayCurrentMarket(iF.CurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
                                 Console.ReadKey();

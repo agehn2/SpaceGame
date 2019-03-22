@@ -12,7 +12,7 @@ namespace AwesomeSpaceGame
         Market alphaCentauriMarket = new Market();
         Market eridaniMarket = new Market();
         Market cetiMarket = new Market();
-        Market newPlanetMarket = new Market();
+        Market newMoon = new Market();
         
         //Earths Market
         Item sE = new Item("steel:  ", 75, 80, 65,70, 2);
@@ -154,7 +154,7 @@ namespace AwesomeSpaceGame
             {
                 Console.WriteLine("New planet Market");
                 AddToNewPlanet();    
-                return newPlanetMarket;
+                return newMoon;
             }
              
          }
