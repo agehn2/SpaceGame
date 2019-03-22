@@ -28,7 +28,7 @@ namespace AwesomeSpaceGame
 
         public void AddItem(Item thing)
         {
-            items.Add(thing);
+            //items.Add(thing);
         }
 
 

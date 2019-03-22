@@ -36,7 +36,7 @@ namespace AwesomeSpaceGame
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("========================================================================================================================");
             Console.ResetColor();
-            Console.WriteLine($"Name: {name}\t\t\t\t\t ${money}\t\t\t\t\t Leave Days Left: {leaveLeft} ");
+            Console.WriteLine($"Name: {name}\t\t\t\t\t ${money}\t\t\t\t\t Leave Days Left: {leaveLeft:f2} ");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("========================================================================================================================");
             Console.ResetColor();

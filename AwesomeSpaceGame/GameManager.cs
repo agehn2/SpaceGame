@@ -24,12 +24,12 @@ namespace AwesomeSpaceGame
         int selectedItem;
         Character one = new Character();
         SpaceShip myShip;
-        double warpFactor=0;
+        double warpFactor=9.0;
 
         public void Run()
         {
             currentPlanet = earth;
-            ItemFactory iF = new ItemFactory();
+            //ItemFactory iF = new ItemFactory();
             Display d = new Display();
             d.ASCIIMain();
             bool leaveLoop = false;
@@ -101,41 +101,50 @@ namespace AwesomeSpaceGame
             switch (Controller(planetName))
             {
                 case 0:
+                    
                     destination = earth;
                     currentPlanet = destination;
+                    double travelTime = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
+                    Console.WriteLine(travelTime);
+                    one.LeaveLeft(travelTime);
                     Console.WriteLine($"Welcome to {currentPlanet.name}.");
                     break;
                 case 1:
                     destination = planet1;
                     currentPlanet = destination;
+                    double travelTime1 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
+                    one.LeaveLeft(travelTime1);
+                    Console.WriteLine(travelTime1);
                     Console.WriteLine($"Welcome to {currentPlanet.name}.");
                     break;
                 case 2:
                     destination = planet2;
                     currentPlanet = destination;
+                    double travelTime2 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
+                    one.LeaveLeft(travelTime2);
                     Console.WriteLine($"Welcome to {currentPlanet.name}.");
                     break;
                 case 3:
                     destination = planet3;
                     currentPlanet = destination;
+                    double travelTime3 = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);
+                    one.LeaveLeft(travelTime3);
                     Console.WriteLine($"Welcome to {currentPlanet.name}.");
 
                     break;
 
             }
 
-            double timeToTravel = origin.Distance(origin, destination) / myShip.Speed(warpFactor);
-            double leaveLeftAfterTravel = one.LeaveLeft(timeToTravel);
-            if (leaveLeftAfterTravel<0)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("You don't have enough time to travel");
-            }
-            else if (leaveLeftAfterTravel>=0)
-            {
-                currentPlanet = destination;
-                Console.WriteLine($"Welcome to {currentPlanet.name}.");
-            }
+            //if (leaveLeftAfterTravel<0)
+            //{
+            //    Console.ForegroundColor = ConsoleColor.Red;
+            //    Console.WriteLine("You don't have enough time to travel");
+            //}
+            //else if (leaveLeftAfterTravel>=0)
+            //{
+            //    currentPlanet = destination;
+            //    Console.WriteLine($"Welcome to {currentPlanet.name}.");
+            //}
         }
 
         public void ChooseSpaceShip()
