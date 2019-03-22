@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AwesomeSpaceGame
 {
-    class Market
+    public class Market
     {
         public List<Item> items = new List<Item>();
 

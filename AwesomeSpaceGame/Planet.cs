@@ -13,7 +13,7 @@ namespace AwesomeSpaceGame
         public double x, y;   // TODO: Struct Coords
         public string name;
         public double distance;
-        Market planetMarket;
+        public Market planetMarket;
         public double Distance(Planet a, Planet b)
         {
             double distance = Math.Sqrt(Math.Pow((b.x - a.x), 2) + Math.Pow((b.y - a.y), 2));
@@ -44,8 +44,23 @@ namespace AwesomeSpaceGame
             return duration;
         }
 
-       
-
+           public void DisplayCurrentMarket(Market a)
+        {
+            
+            //Console.WriteLine("========================================================================================================================");
+            Console.WriteLine("\nItem Name\t\t     Price of Item\t\t      Sell Price\t\t       Units");
+            Console.WriteLine("========================================================================================================================");
+            for (int i = 0; i < (a.items.Count); i++)
+            {
+                Console.WriteLine($"{a.items[i].itemName}\t --\t\t  {a.items[i].askPrice}\t\t --\t\t  {a.items[i].offerPrice}\t\t --\t\t  {a.items[i].units}\n");
+            }
+            Console.WriteLine("\n\nMake A Selection:");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("=================");
+            Console.ResetColor();
+            Console.WriteLine(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop");
+            Console.ReadKey();
+        }
         
     }
 }

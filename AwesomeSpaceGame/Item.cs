@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AwesomeSpaceGame
 {
-    class Item
+    public class Item
     {
         public string itemName;
         public int askPrice;

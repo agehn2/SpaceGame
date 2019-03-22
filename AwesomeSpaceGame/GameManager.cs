@@ -17,7 +17,7 @@ namespace AwesomeSpaceGame
         List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         List<Planet> planetList = new List<Planet>();
         List<SpaceShip> spaceShipsList = new List<SpaceShip>();
-
+        
         int selectedItem;
         Character one = new Character();
         SpaceShip myShip;
@@ -29,16 +29,57 @@ namespace AwesomeSpaceGame
             planetList.Add(new Planet("Alpha Centauri 3", 25.3, 55.4));
             planetList.Add(new Planet("40 Eridani", 90.5, -150.2));
             planetList.Add(new Planet("YZ Ceti", -455.1, 900.5));
+            planetList.Add(new Planet("New Moon", 1500, 2300));
+
+            Market earthMarket = planetList[0].planetMarket;
+
+            AddToEarth(earthMarket);
+
+            planetList[1].planetMarket.AddItem(new Item("steel: ", 100, 110, 90, 100, 2));
+            planetList[1].planetMarket.AddItem(new Item("bronze: ", 255, 290, 240, 255, 4));
+            planetList[1].planetMarket.AddItem(new Item("iron:   ", 265, 305, 245, 255, 5));
+            planetList[1].planetMarket.AddItem(new Item("gold:  ", 175, 200, 140, 150, 3));
+            planetList[1].planetMarket.AddItem(new Item("copper: ", 375, 415, 360, 375, 4));
+
+            planetList[2].planetMarket.AddItem(new Item("steel: ", 120, 130, 105, 120, 2));
+            planetList[2].planetMarket.AddItem(new Item("bronze: ", 210, 255, 195, 210, 4));
+            planetList[2].planetMarket.AddItem(new Item("iron:   ", 215, 250, 200, 215, 5));
+            planetList[2].planetMarket.AddItem(new Item("gold:  ", 255, 295, 240, 255, 3));
+            planetList[2].planetMarket.AddItem(new Item("copper: ", 270, 305, 255, 265, 4));
+
+            planetList[3].planetMarket.AddItem(new Item("steel: ", 250, 265, 235, 250, 2));
+            planetList[3].planetMarket.AddItem(new Item("bronze: ", 410, 465, 390, 405, 4));
+            planetList[3].planetMarket.AddItem(new Item("iron:   ", 420, 500, 410, 420, 5));
+            planetList[3].planetMarket.AddItem(new Item("gold:  ", 315, 360, 300, 315, 3));
+            planetList[3].planetMarket.AddItem(new Item("copper: ", 320, 370, 300, 310, 4));
+            planetList[3].planetMarket.AddItem(new Item("mithril", 200, 300, 180, 200, 8));
+
+            planetList[4].planetMarket.AddItem(new Item("steel: ", 260, 270, 245, 260, 2));
+            planetList[4].planetMarket.AddItem(new Item("bronze: ", 295, 335, 280, 295, 4));
+            planetList[4].planetMarket.AddItem(new Item("iron:   ", 315, 360, 305, 315, 5));
+            planetList[4].planetMarket.AddItem(new Item("gold:  ", 365, 410, 340, 360, 3));
+            planetList[4].planetMarket.AddItem(new Item("copper: ", 220, 265, 205, 215, 4));
 
             spaceShipsList.Add(new SpaceShip("Blue Falcon", SpaceShip.capacityHard, SpaceShip.warpFactorHard));
             spaceShipsList.Add(new SpaceShip("M1A1 Space Edition", SpaceShip.capacityMedium, SpaceShip.warpFactorMedium));
             spaceShipsList.Add(new SpaceShip("Space Force One", SpaceShip.capacityEasy, SpaceShip.warpFactorEasy));
+
+        }
+
+        private void AddToEarth(Market earthMarket)
+        {
+            earthMarket.AddItem(new Item("steel:  ", 75, 80, 65, 70, 2));
+            earthMarket.AddItem(new Item("bronze: ", 335, 395, 320, 335, 4));
+            earthMarket.AddItem(new Item("iron:   ", 345, 395, 335, 345, 5));
+            earthMarket.AddItem(new Item("gold:   ", 205, 245, 160, 175, 3));
+            earthMarket.AddItem(new Item("copper: ", 410, 480, 400, 410, 4));
+            earthMarket.AddItem(new Item("mithril:", 550, 850, 400, 450, 8));
         }
 
         public void Run()
         {
             currentPlanet = planetList[0];
-            ItemFactory iF = new ItemFactory();
+            
             d.ASCIIMain();
             bool leaveLoop = false;
 
@@ -71,9 +112,9 @@ namespace AwesomeSpaceGame
                                 break;
                             case ConsoleKey.M:
                                 Console.Clear();
-                                planetList[0].;
                                 one.PrintCharacter();
-                                iF.DisplayCurrentMarket(iF.CurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
+                                
+                                //itemFactory.DisplayCurrentMarket(iF.CurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
                                 Console.ReadKey();
                                 
                                 break;
