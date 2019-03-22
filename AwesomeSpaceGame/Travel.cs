@@ -9,17 +9,5 @@ namespace AwesomeSpaceGame
     class Travel
     {
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
