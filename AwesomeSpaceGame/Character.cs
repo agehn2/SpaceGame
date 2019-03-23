@@ -26,8 +26,13 @@ namespace AwesomeSpaceGame
         public string Intro(string userName)
         {
             name = userName;
-            string intro = $"DS SHARPEO: Private {userName}. Your name sounds stupid, you piece of... but it's okay." +
-                "Forget what .\n .......\n\n\n\n\n\n\n\n\n\n\n\n\n ........3 years later\n It is time for you to get out of the military.But if you get out now you will not be able to pay for “blank”.\n You are on leave for 50 days and by the end you have to earn $200,000 or reenlist\n ...FOR LIFE\n\n\n\n\n\n\n\n\n Press Enter to Continue";
+            string intro = $"DS SHARPEO: Private {userName}. \n\t\tYour name sounds stupid just as you are, but it's okay. \n\t\tI will transform you to a great Soldier." +
+                $"\n\t\tYou are very lucky to meet me. My name is Drill Sergeant SHARPEO \n\t\tand I am DS of the year. HAHAHAHAHAHAHAHAHAHAHAHAHAHA\n" +
+                $"\n{userName}:.......The....F....\n" +
+                $"\nDS SHARPEO: ATTENTION. HALF RIGHT FACE. FRONT LEAN......\n" +
+                $"\n{userName}: Hey, Drill. We've done nothing but push ups and sit ups for 8 hours....I'm done. This is stupid.....\n" +
+                $"\nDS SHARPEO: Aight, Private. You think you have what it takes to be in the SPACE FORCES... \n\t\tDon't blame me...blame your recruiter.";
+
             return intro;
         }
 
@@ -45,13 +50,20 @@ namespace AwesomeSpaceGame
 
         public void Display()
         {
+            string intro1 = "\n\n\n\t\t........3 years later. \nIt is time for you to get out of the military." +
+                "\nUnfortunately, you have been busy partying and don't have enough money to get out. " +
+                "\nOnly entitlement you have now is 50 days of leave. Now you have two choices." +
+                "\nYou have to earn $100,000 in 50 days or reenlist\n...FOR LIFE\n\n\n\n\n\n\n\n\n Press Enter to Continue";
             Console.Write("What is your FIRST Name: ");
-            Console.ReadLine();
+            string userName = Console.ReadLine();
             Console.Write("I DON'T CARE. What is your LAST Name: ");
             string userInput = Console.ReadLine();
             Console.Clear();
             Console.WriteLine($"{Intro(userInput)}");
-            name = userInput;
+            name = userName;
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine(intro1);
             Console.ReadKey();
         }
 
