@@ -13,15 +13,15 @@
 //        Market eridaniMarket = new Market();
 //        Market cetiMarket = new Market();
 //        Market newMoon = new Market();
-        
+
 //        //Earths Market
-//        Item sE = new Item("steel:  ", 75, 80, 65,70, 2);
-//        Item bE = new Item("bronze: ", 335, 395, 320,335, 4);
+//        Item sE = new Item("steel:  ", 75, 80, 65, 70, 2);
+//        Item bE = new Item("bronze: ", 335, 395, 320, 335, 4);
 //        Item iE = new Item("iron:   ", 345, 395, 335, 345, 5);
 //        Item gE = new Item("gold:   ", 205, 245, 160, 175, 3);
 //        Item cE = new Item("copper: ", 410, 480, 400, 410, 4);
 //        Item mE = new Item("mithril:", 550, 850, 400, 450, 8);
-        
+
 //        //AC  Market
 //        Item sAC = new Item("steel: ", 100, 110, 90, 100, 2);
 //        Item bAC = new Item("bronze: ", 255, 290, 240, 255, 4);
@@ -35,7 +35,7 @@
 //        Item iED = new Item("iron:   ", 215, 250, 200, 215, 5);
 //        Item gED = new Item("gold:  ", 255, 295, 240, 255, 3);
 //        Item cED = new Item("copper: ", 270, 305, 255, 265, 4);
-       
+
 //        //ceti Buy Market
 //        Item sC = new Item("steel: ", 250, 265, 235, 250, 2);
 //        Item bC = new Item("bronze: ", 410, 465, 390, 405, 4);
@@ -44,9 +44,9 @@
 //        Item cC = new Item("copper: ", 320, 370, 300, 310, 4);
 //        Item mC = new Item("mithril", 200, 300, 180, 200, 8);
 
-            
+
 //        private void AddToNewPlanet()
-//        { 
+//        {
 //        }
 
 //        private void AddToEarth()
@@ -76,7 +76,7 @@
 //            eridaniMarket.items.Add(cED);
 //        }
 
-     
+
 //        public void DisplayEarthMarket()
 //        {
 //            AddToEarth();
@@ -95,61 +95,13 @@
 //            Console.ReadKey();
 //        }
 
-//        public void DisplayCurrentMarket(Market a)
-//        {
-            
-//            //Console.WriteLine("========================================================================================================================");
-//            Console.WriteLine("\nItem Name\t\t     Price of Item\t\t      Sell Price\t\t       Units");
-//            Console.WriteLine("========================================================================================================================");
-//            for (int i = 0; i < (a.items.Count); i++)
-//            {
-//                Console.WriteLine($"{a.items[i].itemName}\t --\t\t  {a.items[i].askPrice}\t\t --\t\t  {a.items[i].offerPrice}\t\t --\t\t  {a.items[i].units}\n");
+
+
+
 //            }
-//            Console.WriteLine("\n\nMake A Selection:");
-//            Console.ForegroundColor = ConsoleColor.Red;
-//            Console.WriteLine("=================");
-//            Console.ResetColor();
-//            Console.WriteLine(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop");
-//            Console.ReadKey();
+
 //        }
-
-//         public Market CurrentMarket(Planet e, Planet a, Planet b, Planet c, Planet d)
-//         {
-//            if (e == a)
-//            {
-//                Console.WriteLine("earths market");
-//                AddToEarth();
-//                return earthMarket;
-//            }
-//            else if (e == b)
-//            {
-//                Console.WriteLine("Alpha Centauri Market");
-//                AddToAlphaCentauri();
-//                return alphaCentauriMarket;
-//            }
-//            else if (e == c)
-//            {
-//                Console.WriteLine("Eridani Market");
-//                AddToEridani();
-//                return eridaniMarket;
-//            }
-//            else if (e == d)
-//            {
-//                Console.WriteLine("Ceti Market");
-//                //AddToCeti();
-//                return cetiMarket;
-//            }
-//            else
-//            {
-//                Console.WriteLine("New planet Market");
-//                AddToNewPlanet();    
-//                return newMoon;
-//            //}
-             
-//         }
-
 //    }
-//}
 
 
 

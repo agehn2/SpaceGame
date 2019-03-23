@@ -76,7 +76,7 @@ namespace AwesomeSpaceGame
         }
 
         //Add weight to ship
-        public void AddCapacity(int addWeight) => capacity += addWeight;
+        public void AddItem(int addItem) => capacity += addItem;
 
         //Remove weight from ship player
         public void RemoveCapacity(int takeAwayWeight) => capacity -= takeAwayWeight;

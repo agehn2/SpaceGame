@@ -11,6 +11,7 @@ namespace AwesomeSpaceGame
     {
         List<string> Difficulty = new List<string> {"Easy", "Medium", "Hard"};
         List<string> mainMenu = new List<string>();  //TODO: Create enum Actions {Start, Quit};
+        List<string> MarketMenu = new List<string>(); //Buy, Sell, Inventory
 
         int selectedMenu = 0;
         int selectedItem = 0;
@@ -252,6 +253,9 @@ namespace AwesomeSpaceGame
             return selectedItem;
 
         }
+
+       
+
 
 
     }
