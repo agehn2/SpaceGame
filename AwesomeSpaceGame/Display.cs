@@ -191,7 +191,7 @@ namespace AwesomeSpaceGame
             Console.WriteLine("=======================");
             Console.ResetColor();
             Console.WriteLine(" Easy\t |E|\n Medium\t |M|\n Hard\t |H|");
-            Console.WriteLine("\nSelection:");
+            Console.Write("\nSelection: ");
         }
 
         public void MenuOptions(List<string> list)

@@ -12,6 +12,7 @@ namespace AwesomeSpaceGame
         public string name;
         double money = 1000;
         double leaveLeft = 50;
+        double capacity=100;
         
 
         //constructor
@@ -30,13 +31,13 @@ namespace AwesomeSpaceGame
             return intro;
         }
 
-        public void PrintCharacter()
+        public void PrintCharacter(string name, double money, double leaveLeft, double capacity, string currentLocation)
         {
             Console.Clear();         
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("========================================================================================================================");
             Console.ResetColor();
-            Console.WriteLine($"Name: {name}\t\t\t\t\t ${money}\t\t\t\t\t Leave Days Left: {leaveLeft:f2} ");
+            Console.WriteLine($"Name: {name}\t\t\t Current Balance: ${money}\t\t\t Leave Days Left: {leaveLeft:f2}\n \t\t\t\t Capacity: {capacity} \t\t\t Current Location: {currentLocation}");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("========================================================================================================================");
             Console.ResetColor();
@@ -53,16 +54,15 @@ namespace AwesomeSpaceGame
             name = userInput;
             Console.ReadKey();
         }
+
+        public double Money()
+        {
+            return money;
+        }
             //Add money to player
-        public void AddMoney( double deposit)
+        public void AddMoney(double deposit)
         {
             money += deposit;
-        }
-
-        public double LeaveLeft(double daysTravel)
-        {
-            leaveLeft -= daysTravel;
-            return leaveLeft;
         }
 
         //Take money from player
@@ -71,7 +71,40 @@ namespace AwesomeSpaceGame
             money -= subtract;
         }
      
-            
+        public double TimeLeft ()
+        {
+            return leaveLeft;
+        }
+
+        public double LeaveLeft(double daysTravel)
+        {
+            leaveLeft -= daysTravel;
+            return leaveLeft;
+        }
+
+        public double Capacity()
+        {
+            return capacity;
+        }
+
+        public void BuyItemAddWeight (double itemWeight)
+        {
+            if (itemWeight > capacity)
+            {
+                Console.WriteLine("Too Heavy, bro.");
+                Console.ReadKey();
+            }
+            else if (itemWeight < capacity)
+            {
+                capacity -= itemWeight;
+            }
+        }
+
+        public void SellItemRemoveWeight(double itemWeight)
+        {
+            capacity += itemWeight;
+        }
+
     }
 }
 

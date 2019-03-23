@@ -16,6 +16,10 @@ namespace AwesomeSpaceGame
         private const double n = 1.7952294708;
         private const double a = 0.03658749373;
 
+        public static double warpFactorHard = 9.5;
+        public static double warpFactorMedium = 9.6;
+        public static double warpFactorEasy = 9.7;
+
         public const double capacityHard = 90;
         public const double capacityMedium = 100;
         public const double capacityEasy = 110;

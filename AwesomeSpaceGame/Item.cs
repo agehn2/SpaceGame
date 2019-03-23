@@ -11,14 +11,14 @@ namespace AwesomeSpaceGame
         public string itemName;
         public int askPrice;
         public int offerPrice;
-        public int units;
-        
-        public Item(string nameOfItem, int a, int b , int c, int d, int unit)
+        public int weight;
+
+        public Item(string nameOfItem, int a, int b , int c, int d, int weight)
         {
             itemName = nameOfItem;
             askPrice = RandomNumber(a, b);           //.RandomNumber(a,a);
             offerPrice = RandomNumber(c, d);
-            units = unit;
+            this.weight = weight;
         }
        
          public static int RandomNumber(int min, int max)  

@@ -48,11 +48,11 @@ namespace AwesomeSpaceGame
         {
             
             //Console.WriteLine("========================================================================================================================");
-            Console.WriteLine("\nItem Name\t\t     Price of Item\t\t      Sell Price\t\t       Units");
+            Console.WriteLine("\nItem Name\t\t     Price of Item\t\t      Sell Price\t\t       Weight");
             Console.WriteLine("========================================================================================================================");
             for (int i = 0; i < (a.items.Count); i++)
             {
-                Console.WriteLine($"{a.items[i].itemName}\t --\t\t  {a.items[i].askPrice}\t\t --\t\t  {a.items[i].offerPrice}\t\t --\t\t  {a.items[i].units}\n");
+                Console.WriteLine($"{a.items[i].itemName}\t --\t\t  {a.items[i].askPrice}\t\t --\t\t  {a.items[i].offerPrice}\t\t --\t\t  {a.items[i].weight}\n");
             }
             Console.WriteLine("\n\nMake A Selection:");
             Console.ForegroundColor = ConsoleColor.Red;
