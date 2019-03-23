@@ -15,6 +15,8 @@ namespace AwesomeSpaceGame
 
         int selectedMenu = 0;
         int selectedItem = 0;
+        protected static int origRow;
+        protected static int origCol;
 
         public bool MainMenu()
         {
@@ -45,16 +47,11 @@ namespace AwesomeSpaceGame
 
                 }
             } while (!quit);
-
             return (selectedMenu == 0);
-
         }
-
-
 
         private bool Play()
         {
-
             if (selectedMenu == 0)
             {
 
@@ -141,7 +138,6 @@ namespace AwesomeSpaceGame
 
             Console.ResetColor();
             Console.ReadKey();
-
         }
 
         private void SelectNextItem()
@@ -187,8 +183,7 @@ namespace AwesomeSpaceGame
             Console.ResetColor();
 
         }
-
-        
+       
          public static void ChooseDifficulty()
         {
             Console.WriteLine("Choose your difficulty:");
@@ -254,8 +249,7 @@ namespace AwesomeSpaceGame
 
         }
 
-        protected static int origRow;
-        protected static int origCol;
+       
 
         protected static void WriteAt(string s, int x, int y)
         {
@@ -275,24 +269,24 @@ namespace AwesomeSpaceGame
         {
             origRow = Console.CursorTop;
             origCol = Console.CursorLeft;
+            int nextItem = 0;
             WriteAt("\n\nMake A Selection:", 0, 1);
             Console.ForegroundColor = ConsoleColor.Red;
             WriteAt("=================",0, 4);
             Console.ResetColor();
             WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop", 0, 5);
-
+            WriteAt("Inventory: ", 36, 4);
             for (int i = 0; i < inventory.Count; i++)
             {
-                //WriteAt();
-
+                WriteAt($"{inventory[i].itemName}()", 48, 4 + nextItem);
+                nextItem = (nextItem + 1);
             }
-
-            Console.WriteLine();
-            
-
         }
-
-
-
     }
 }
+
+            
+            
+
+
+

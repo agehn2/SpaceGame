@@ -14,7 +14,7 @@ namespace AwesomeSpaceGame
         Planet destination;
 
         Display d = new Display();
-        List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
+        //List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         List<Planet> planetList = new List<Planet>();
         List<SpaceShip> spaceShipsList = new List<SpaceShip>();
         List<Item> inventory = new List<Item>();
@@ -23,13 +23,19 @@ namespace AwesomeSpaceGame
         int selectedItem;
         Character one = new Character();
         SpaceShip myShip;
-        double inventoryCapacity;
+        double inventoryMaxCapacity;
+        double revolvingCapa;
         double warpFactor;
 
         public GameManager()
         {
             inventory.Add(new Item("steel:  ", 260, 270, 245, 260, 2));
-            inventory.Add(new Item("bronze:  ", 260, 270, 245, 260, 2));
+            inventory.Add(new Item("bronze: ", 260, 270, 245, 260, 2));
+            inventory.Add(new Item("iron:   ", 260, 270, 245, 260, 2));
+            inventory.Add(new Item("gold:   ", 260, 270, 245, 260, 2));
+            inventory.Add(new Item("copper:", 260, 270, 245, 260, 2));
+            
+
 
             planetList.Add(new Planet("Earth", 0.0, 0.0));
             planetList.Add(new Planet("Alpha Centauri 3", 25.3, 55.4));
@@ -115,7 +121,7 @@ namespace AwesomeSpaceGame
                 //Creates Capacity for inventory, was having trouble using spaceships, so im building inventory seperate
                 //but it still takes capacity from spaceship.
                 // TODO: Make IC take capacity from selected spaceship for game!
-                inventoryCapacity = spaceShipsList[1].spaceShipHard.capacitySpaceShip;
+                inventoryMaxCapacity = spaceShipsList[1].spaceShipHard.capacitySpaceShip;
                
                 one.Display();
                 one.PrintCharacter();
@@ -143,9 +149,8 @@ namespace AwesomeSpaceGame
                                 Console.Clear();
                                 one.PrintCharacter();
                                 MarketController(ChoosesCurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
-                                
+                                Display.MarketSelectionText(inventory);
                                 Console.ReadKey();
-
                                 break;
                             case ConsoleKey.Q:
                                 leaveLoop = true;
@@ -384,17 +389,13 @@ namespace AwesomeSpaceGame
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
 
-                Console.WriteLine($"{currentMarket.items[i].itemName}\t --\t\t  {currentMarket.items[i].askPrice}\t\t --\t\t  {currentMarket.items[i].offerPrice}\t\t --\t\t  {currentMarket.items[i].units}\n");
+                Console.WriteLine($"{currentMarket.items[i].itemName}\t --\t\t  {currentMarket.items[i].askPrice}\t\t --\t\t  {currentMarket.items[i].offerPrice}\t\t --\t\t  {currentMarket.items[i].units}");
                 
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.BackgroundColor = ConsoleColor.Black;
             }
-            Display.MarketSelectionText(inventory);
-            //Console.WriteLine("\n\nMake A Selection:");
-            //Console.ForegroundColor = ConsoleColor.Red;
-            //Console.WriteLine("=================");
-            //Console.ResetColor();
-            //Console.WriteLine(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop");
+   
+                Display.MarketSelectionText(inventory);
             
         }
         //Displays CurrentMarket
@@ -422,7 +423,19 @@ namespace AwesomeSpaceGame
                             selectedItem = 0;
                         }
                         break;
-                    case ConsoleKey.Enter:
+                    case ConsoleKey.B:
+                        inventory.Add(currentMarket.items[selectedItem]);
+                        one.TakeMoney(currentMarket.items[selectedItem].askPrice);
+                        break;
+                    case ConsoleKey.S:
+                        var index = inventory.FindIndex(i => i.itemName == currentMarket.items[selectedItem].itemName);
+                        if (index >= 0)
+                        {
+                        inventory.RemoveAt(index);
+                        one.AddMoney(currentMarket.items[selectedItem].offerPrice);
+                        }
+                        break;
+                    case ConsoleKey.E:
                         quit = true;
                         break;
 
@@ -432,10 +445,6 @@ namespace AwesomeSpaceGame
             return selectedItem;
 
         }
-
-
-
-
 
         public void InventoryInterface(List<Item> inventory)
         {
@@ -493,8 +502,13 @@ namespace AwesomeSpaceGame
             return selectedItem;
 
         }
+
     }
 }
+
+
+
+
 
                     
         
