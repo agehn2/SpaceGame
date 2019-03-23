@@ -28,12 +28,12 @@ namespace AwesomeSpaceGame
 
         public GameManager()
         {
-            inventory.Add(new Item("steel:   ", 260, 270, 245, 260, 2));
-            inventory.Add(new Item("bronze:  ", 260, 270, 245, 260, 4));
-            inventory.Add(new Item("iron:    ", 260, 270, 245, 260, 5));
-            inventory.Add(new Item("gold:    ", 260, 270, 245, 260, 3));
-            inventory.Add(new Item("copper:  ", 260, 270, 245, 260, 4));
-            
+            //inventory.Add(new Item("steel:   ", 260, 270, 245, 260, 2));
+            //inventory.Add(new Item("bronze:  ", 260, 270, 245, 260, 4));
+            //inventory.Add(new Item("iron:    ", 260, 270, 245, 260, 5));
+            //inventory.Add(new Item("gold:    ", 260, 270, 245, 260, 3));
+            //inventory.Add(new Item("copper:  ", 260, 270, 245, 260, 4));
+            //TODO: Initial weight capacity has to be adjusted based on inventory items.
 
 
             planetList.Add(new Planet("Earth", 0.0, 0.0));
@@ -210,23 +210,13 @@ namespace AwesomeSpaceGame
                     break;
             }
 
-            //if (leaveLeftAfterTravel<0)
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine("You don't have enough time to travel");
-            //}
-            //else if (leaveLeftAfterTravel>=0)
-            //{
-            //    currentPlanet = destination;
-            //    Console.WriteLine($"Welcome to {currentPlanet.name}.");
-            //}
         }
 
         private void TravelToChoice(int i)
         {
             destination = planetList[i];
             currentPlanet = destination;
-            double travelTime = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);//TODO: WarpFactor
+            double travelTime = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);//TODO: WarpFactor change based on Difficulty
             Console.WriteLine($"{travelTime:f2}");
             one.LeaveLeft(travelTime);
             Console.WriteLine($"Welcome to {planetList[i].name}.");
