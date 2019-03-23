@@ -254,7 +254,43 @@ namespace AwesomeSpaceGame
 
         }
 
-       
+        protected static int origRow;
+        protected static int origCol;
+
+        protected static void WriteAt(string s, int x, int y)
+        {
+            try
+            {
+                Console.SetCursorPosition(origCol + x, origRow + y);
+                Console.Write(s);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public static void MarketSelectionText(List<Item> inventory)
+        {
+            origRow = Console.CursorTop;
+            origCol = Console.CursorLeft;
+            WriteAt("\n\nMake A Selection:", 0, 1);
+            Console.ForegroundColor = ConsoleColor.Red;
+            WriteAt("=================",0, 4);
+            Console.ResetColor();
+            WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop", 0, 5);
+
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                //WriteAt();
+
+            }
+
+            Console.WriteLine();
+            
+
+        }
 
 
 

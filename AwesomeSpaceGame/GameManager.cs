@@ -142,7 +142,8 @@ namespace AwesomeSpaceGame
                             case ConsoleKey.M:
                                 Console.Clear();
                                 one.PrintCharacter();
-                                MarketController(ChoosesCurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));                               
+                                MarketController(ChoosesCurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
+                                
                                 Console.ReadKey();
 
                                 break;
@@ -388,11 +389,12 @@ namespace AwesomeSpaceGame
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.BackgroundColor = ConsoleColor.Black;
             }
-            Console.WriteLine("\n\nMake A Selection:");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=================");
-            Console.ResetColor();
-            Console.WriteLine(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop");
+            Display.MarketSelectionText(inventory);
+            //Console.WriteLine("\n\nMake A Selection:");
+            //Console.ForegroundColor = ConsoleColor.Red;
+            //Console.WriteLine("=================");
+            //Console.ResetColor();
+            //Console.WriteLine(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop");
             
         }
         //Displays CurrentMarket
@@ -431,6 +433,10 @@ namespace AwesomeSpaceGame
 
         }
 
+
+
+
+
         public void InventoryInterface(List<Item> inventory)
         {
             Console.Clear();
@@ -453,7 +459,6 @@ namespace AwesomeSpaceGame
             }
             
         }
-
         public int InventoryController(List<Item> inventory)
         {
             bool quit = false;
@@ -488,9 +493,6 @@ namespace AwesomeSpaceGame
             return selectedItem;
 
         }
-
-
-
     }
 }
 
