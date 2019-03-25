@@ -10,7 +10,7 @@ namespace AwesomeSpaceGame
     {
         //characteristics    
         public string name;
-        public double money = 100000;
+        public double money = 15000;
         public double leaveLeft = 50;
         double capacity=100;
         
