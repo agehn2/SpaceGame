@@ -19,9 +19,9 @@ namespace AwesomeSpaceGame
         public static double warpFactorMedium = 9.5;
         public static double warpFactorEasy = 9.9;
 
-        public const double capacityHard = 90;
-        public const double capacityMedium = 100;
-        public const double capacityEasy = 110;
+        public static double capacityHard = 90;
+        public static double capacityMedium = 100;
+        public static double capacityEasy = 110;
 
         public (string nameSpaceShip, double capacitySpaceShip, double warpFactorHard) spaceShipHard
                                                         = ("Blue Falcon", capacityHard, 9.5);
@@ -81,6 +81,16 @@ namespace AwesomeSpaceGame
                 return warpFactorMedium;
             else
                 return warpFactorHard;
+        }
+
+        public double SelectCapacity(int i)
+        {
+            if (i == 0)
+                return capacityEasy;
+            else if (i == 1)
+                return capacityMedium;
+            else
+                return capacityHard;
         }
 
         //Add weight to ship

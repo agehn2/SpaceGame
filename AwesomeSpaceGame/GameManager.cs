@@ -23,7 +23,7 @@ namespace AwesomeSpaceGame
         int selectedItem;
         Character one = new Character();
         SpaceShip myShip;
-        double inventoryMaxCapacity;
+        double capacity;
         double warpFactor;
 
         public GameManager()
@@ -125,7 +125,6 @@ namespace AwesomeSpaceGame
                 //Creates Capacity for inventory, was having trouble using spaceships, so im building inventory seperate
                 //but it still takes capacity from spaceship.
                 // TODO: Make IC take capacity from selected spaceship for game!
-                inventoryMaxCapacity = spaceShipsList[1].spaceShipHard.capacitySpaceShip;
 
                 one.Display();
 
@@ -187,7 +186,7 @@ namespace AwesomeSpaceGame
 
         private void PrintCurrentStatus()
         {
-            one.PrintCharacter(one.name, one.Money(), one.TimeLeft(), one.Capacity(), currentPlanet.name);
+            one.PrintCharacter(one.name, one.Money(), one.TimeLeft(), capacity, currentPlanet.name);
         }
 
         public void PlanetTravel()
@@ -259,14 +258,17 @@ namespace AwesomeSpaceGame
                     {
                         case ConsoleKey.E:
                             warpFactor = myShip.SelectWarpFactor(0);
+                            capacity = myShip.SelectCapacity(0);
                             Console.Clear();
                             break;
                         case ConsoleKey.M:
                             warpFactor = myShip.SelectWarpFactor(1);
+                            capacity = myShip.SelectCapacity(1);
                             Console.Clear();
                             break;
                         case ConsoleKey.H:
                             warpFactor = myShip.SelectWarpFactor(2);
+                            capacity = myShip.SelectCapacity(2);
                             Console.Clear();
                             break;
                         default:
@@ -431,9 +433,17 @@ namespace AwesomeSpaceGame
                     case ConsoleKey.B:
                         if (currentMarket.items[selectedItem].askPrice < one.Money())
                         {
-                            inventory.Add(currentMarket.items[selectedItem]);
-                            one.TakeMoney(currentMarket.items[selectedItem].askPrice);
-                            one.BuyItemAddWeight(currentMarket.items[selectedItem].weight);
+                            if (one.Capacity() >= currentMarket.items[selectedItem].weight)
+                            {
+                                inventory.Add(currentMarket.items[selectedItem]);
+                                one.TakeMoney(currentMarket.items[selectedItem].askPrice);
+                                one.BuyItemAddWeight(currentMarket.items[selectedItem].weight);
+                            }
+                            else if (one.Capacity() < currentMarket.items[selectedItem].weight)
+                                    {
+                                        Console.WriteLine("Too heavy, bro.");
+                                        Console.ReadKey();
+                                    }
                         }
                         else if (currentMarket.items[selectedItem].askPrice < one.Money())
                         {
