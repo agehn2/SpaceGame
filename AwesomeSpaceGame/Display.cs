@@ -24,6 +24,7 @@ namespace AwesomeSpaceGame
             mainMenu.Add("Quit ");
             Console.Clear();
             return UserInputHandler();
+            
         }
 
         public bool UserInputHandler()
@@ -129,8 +130,7 @@ namespace AwesomeSpaceGame
                         "and.....PERSONAL.....COURAGE!! " ,
                         "Visit the nearest ARMY recruiting center!! ",
                         "\n\n", "Press any key to sign your CONTRACT..." };
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-
+            Console.ForegroundColor = ConsoleColor.DarkYellow;            
             foreach (var s in script)
             {
                 DisplayCenter(s);
@@ -138,6 +138,7 @@ namespace AwesomeSpaceGame
 
             Console.ResetColor();
             Console.ReadKey();
+            
         }
 
         private void SelectNextItem()
@@ -261,7 +262,7 @@ namespace AwesomeSpaceGame
             catch (ArgumentOutOfRangeException e)
             {
                 Console.Clear();
-                Console.WriteLine(e.Message);
+                Console.Write(e.Message);
             }
         }
 
@@ -274,16 +275,28 @@ namespace AwesomeSpaceGame
             Console.ForegroundColor = ConsoleColor.Red;
             WriteAt("=================",0, 4);
             Console.ResetColor();
-            WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop", 0, 5);
+            WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n E. Exit Shop", 0, 5);
             WriteAt("Inventory: ", 36, 4);
-            for (int i = 0; i < inventory.Count; i++)
-            {
-                WriteAt($"{inventory[i].itemName}()", 48, 4 + nextItem);
-                nextItem = (nextItem + 1);
-            }
+                           
+                for (int i = 0; i < inventory.Count; i++)
+                {
+                    WriteAt($"{inventory[i].itemName}", 48, 4 + nextItem);
+                    nextItem = (nextItem + 1);
+                }
         }
+
+        
+
+       
     }
+
 }
+            
+
+
+       
+    
+
 
             
             

@@ -10,8 +10,8 @@ namespace AwesomeSpaceGame
     {
         //characteristics    
         public string name;
-        double money = 1000;
-        double leaveLeft = 50;
+        public double money = 100000;
+        public double leaveLeft = 50;
         double capacity=100;
         
 
@@ -27,7 +27,7 @@ namespace AwesomeSpaceGame
         {
             name = userName;
             string intro = $"DS SHARPEO: Private {userName}. Your name sounds stupid, you piece of... but it's okay." +
-                $"Forget what .\n .......\n\n\n\n\n\n\n\n\n\n\n\n\n ........3 years later\n It is time for you to get out of the military.But if you get out now you will not be able to pay for “blank”.\n You are on leave for 50 days and by the end you have to earn $200,000 or reenlist\n ...FOR LIFE\n\n\n\n\n\n\n\n\n Press Enter to Continue";
+                "Forget what .\n .......\n\n\n\n\n\n\n\n\n\n\n\n\n ........3 years later\n It is time for you to get out of the military.But if you get out now you will not be able to pay for “blank”.\n You are on leave for 50 days and by the end you have to earn $200,000 or reenlist\n ...FOR LIFE\n\n\n\n\n\n\n\n\n Press Enter to Continue";
             return intro;
         }
 
@@ -103,6 +103,18 @@ namespace AwesomeSpaceGame
         public void SellItemRemoveWeight(double itemWeight)
         {
             capacity += itemWeight;
+        }
+
+        public bool ExitGame(bool leaveLeft)
+        {
+            if (this.leaveLeft >= 40)
+            {
+                return leaveLeft = true;
+            }
+            else
+            {
+                return leaveLeft = false;
+            }
         }
 
     }

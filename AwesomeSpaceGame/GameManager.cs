@@ -24,7 +24,7 @@ namespace AwesomeSpaceGame
         Character one = new Character();
         SpaceShip myShip;
         double inventoryMaxCapacity;
-        double warpFactor=9.5;
+        double warpFactor = 9.5;
 
         public GameManager()
         {
@@ -59,58 +59,64 @@ namespace AwesomeSpaceGame
             spaceShipsList.Add(new SpaceShip("Space Force One", SpaceShip.capacityEasy, SpaceShip.warpFactorEasy));
         }
 
+
+
+
+
         private void AddToNewMoon(ref Market newMoonMarket)
         {
-            newMoonMarket.AddItem(new Item("steel:   ", 260, 270, 245, 260, 2));
-            newMoonMarket.AddItem(new Item("bronze:  ", 295, 335, 280, 295, 4));
-            newMoonMarket.AddItem(new Item("iron:    ", 315, 360, 305, 315, 5));
-            newMoonMarket.AddItem(new Item("gold:    ", 365, 410, 340, 360, 3));
-            newMoonMarket.AddItem(new Item("copper:  ", 220, 265, 205, 215, 4));
+            newMoonMarket.AddItem(new Item("steel   ", 260, 270, 245, 260, 2));
+            newMoonMarket.AddItem(new Item("bronze  ", 295, 335, 280, 295, 4));
+            newMoonMarket.AddItem(new Item("iron    ", 315, 360, 305, 315, 5));
+            newMoonMarket.AddItem(new Item("gold    ", 365, 410, 340, 360, 3));
+            newMoonMarket.AddItem(new Item("copper  ", 220, 265, 205, 215, 4));
         }
 
         private void AddToCeti(ref Market cetiMarket)
         {
-            cetiMarket.AddItem(new Item("steel:   ", 250, 265, 235, 250, 2));
-            cetiMarket.AddItem(new Item("bronze:  ", 410, 465, 390, 405, 4));
-            cetiMarket.AddItem(new Item("iron:    ", 420, 500, 410, 420, 5));
-            cetiMarket.AddItem(new Item("gold:    ", 315, 360, 300, 315, 3));
-            cetiMarket.AddItem(new Item("copper:  ", 320, 370, 300, 310, 4));
-            cetiMarket.AddItem(new Item("mithril: ", 200, 300, 180, 200, 8));
+            cetiMarket.AddItem(new Item("steel   ", 250, 265, 235, 250, 2));
+            cetiMarket.AddItem(new Item("bronze  ", 410, 465, 390, 405, 4));
+            cetiMarket.AddItem(new Item("iron    ", 420, 500, 410, 420, 5));
+            cetiMarket.AddItem(new Item("gold    ", 315, 360, 300, 315, 3));
+            cetiMarket.AddItem(new Item("copper  ", 320, 370, 300, 310, 4));
+            cetiMarket.AddItem(new Item("mithril ", 200, 300, 180, 200, 8));
         }
 
         private void AddToEridani(ref Market erdaniMarket)
         {
-            erdaniMarket.AddItem(new Item("steel:   ", 120, 130, 105, 120, 2));
-            erdaniMarket.AddItem(new Item("bronze:  ", 210, 255, 195, 210, 4));
-            erdaniMarket.AddItem(new Item("iron:    ", 215, 250, 200, 215, 5));
-            erdaniMarket.AddItem(new Item("gold:    ", 255, 295, 240, 255, 3));
-            erdaniMarket.AddItem(new Item("copper:  ", 270, 305, 255, 265, 4));
+            erdaniMarket.AddItem(new Item("steel   ", 120, 130, 105, 120, 2));
+            erdaniMarket.AddItem(new Item("bronze  ", 210, 255, 195, 210, 4));
+            erdaniMarket.AddItem(new Item("iron    ", 215, 250, 200, 215, 5));
+            erdaniMarket.AddItem(new Item("gold    ", 255, 295, 240, 255, 3));
+            erdaniMarket.AddItem(new Item("copper  ", 270, 305, 255, 265, 4));
         }
 
         private void AddToAlphaCentauri(ref Market alphaCentauriMarket)
         {
-            alphaCentauriMarket.AddItem(new Item("steel:   ", 100, 110, 90, 100, 2));
-            alphaCentauriMarket.AddItem(new Item("bronze:  ", 255, 290, 240, 255, 4));
-            alphaCentauriMarket.AddItem(new Item("iron:    ", 265, 305, 245, 255, 5));
-            alphaCentauriMarket.AddItem(new Item("gold:    ", 175, 200, 140, 150, 3));
-            alphaCentauriMarket.AddItem(new Item("copper:  ", 375, 415, 360, 375, 4));
+            alphaCentauriMarket.AddItem(new Item("steel   ", 100, 110, 90, 100, 2));
+            alphaCentauriMarket.AddItem(new Item("bronze  ", 255, 290, 240, 255, 4));
+            alphaCentauriMarket.AddItem(new Item("iron    ", 265, 305, 245, 255, 5));
+            alphaCentauriMarket.AddItem(new Item("gold    ", 175, 200, 140, 150, 3));
+            alphaCentauriMarket.AddItem(new Item("copper  ", 375, 415, 360, 375, 4));
         }
 
         private void AddToEarth(ref Market earthMarket)
         {
-            earthMarket.AddItem(new Item("steel:   ", 75, 80, 65, 70, 2));
-            earthMarket.AddItem(new Item("bronze:  ", 335, 395, 320, 335, 4));
-            earthMarket.AddItem(new Item("iron:    ", 345, 395, 335, 345, 5));
-            earthMarket.AddItem(new Item("gold:    ", 205, 245, 160, 175, 3));
-            earthMarket.AddItem(new Item("copper:  ", 410, 480, 400, 410, 4));
-            earthMarket.AddItem(new Item("mithril: ", 550, 850, 400, 450, 8));
+
+            earthMarket.AddItem(new Item("steel   ", 75, 80, 65, 70, 2));
+            earthMarket.AddItem(new Item("bronze  ", 335, 395, 320, 335, 4));
+            earthMarket.AddItem(new Item("iron    ", 345, 395, 335, 345, 5));
+            earthMarket.AddItem(new Item("gold    ", 205, 245, 160, 175, 3));
+            earthMarket.AddItem(new Item("copper  ", 410, 480, 400, 410, 4));
+            earthMarket.AddItem(new Item("mithril ", 550, 850, 400, 450, 8));
+
         }
 
+        bool leaveLoop = false;
         public void Run()
         {
             currentPlanet = planetList[0];
             d.ASCIIMain();
-            bool leaveLoop = false;
 
             if (d.MainMenu())
             {
@@ -120,59 +126,60 @@ namespace AwesomeSpaceGame
                 //but it still takes capacity from spaceship.
                 // TODO: Make IC take capacity from selected spaceship for game!
                 inventoryMaxCapacity = spaceShipsList[1].spaceShipHard.capacitySpaceShip;
-               
+
                 one.Display();
                 PrintCurrentStatus();
-                do
-                {
-                    try
+                    do
                     {
-                        Console.Clear();
-                        PrintCurrentStatus();
-                        Console.WriteLine("Make a selection");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("========================================================================================================================");
-                        Console.ResetColor();
-                        Console.WriteLine ("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");
-                        var choice = Console.ReadKey(true).Key;
-
-                        switch (choice)
+                        try
                         {
-                            case ConsoleKey.D:
-                                Planet.PlanetDescription();
-                                Console.Read();
-                                break;
-                            case ConsoleKey.T:
-                                PlanetTravel();
-                                Console.ReadKey();
-                                break;
-                            case ConsoleKey.M:
-                                Console.Clear();
-                                PrintCurrentStatus();
-                                MarketController(ChoosesCurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
-                                Display.MarketSelectionText(inventory);
-                                Console.ReadKey();
-                                break;
-                            case ConsoleKey.Q:
-                                leaveLoop = true;
-                                break;
-                            default:
-                                break;
+                            Console.Clear();
+                            PrintCurrentStatus();
+                            Console.WriteLine("Make a selection");
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("========================================================================================================================");
+                            Console.ResetColor();
+                            Console.WriteLine("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");
+                            var choice = Console.ReadKey(true).Key;
+
+                            switch (choice)
+                            {
+                                case ConsoleKey.D:
+                                    Planet.PlanetDescription();
+                                    Console.Read();
+                                    break;
+                                case ConsoleKey.T:
+                                    PlanetTravel();
+                                    Console.ReadKey();
+                                    break;
+                                case ConsoleKey.M:
+                                    Console.Clear();
+                                    PrintCurrentStatus();
+                                    MarketController(ChoosesCurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
+                                    Display.MarketSelectionText(inventory);
+                                    Console.ReadKey();
+                                    break;
+                                case ConsoleKey.Q:
+                                    leaveLoop = true;
+                                    break;
+                                default:
+                                    break;
 
 
+                            }
                         }
-                    }
-                    catch (Exception)
-                    {
-                        Console.Clear();
-                        Console.BackgroundColor = ConsoleColor.Black;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n                                                  Invalid Input                                                                           ");
-                        Console.WriteLine("                                             Press enter to continute                                                                    ");
-                        Console.ResetColor();
-                        Console.ReadKey();
-                    }
-                } while (!leaveLoop);
+                        catch (Exception)
+                        {
+                            Console.Clear();
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n                                                  Invalid Input                                                                           ");
+                            Console.WriteLine("                                             Press enter to continute                                                                    ");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                        }
+                        one.ExitGame(leaveLoop);
+                    } while (!leaveLoop);
             }
 
 
@@ -180,10 +187,10 @@ namespace AwesomeSpaceGame
 
         private void PrintCurrentStatus()
         {
-            one.PrintCharacter(one.name, one.Money(), one.TimeLeft(), one.Capacity() ,currentPlanet.name);
+            one.PrintCharacter(one.name, one.Money(), one.TimeLeft(), one.Capacity(), currentPlanet.name);
         }
 
-        private void PlanetTravel()
+        public void PlanetTravel()
         {
             Console.Clear();
             origin = currentPlanet;
@@ -259,14 +266,14 @@ namespace AwesomeSpaceGame
                 }
             } while (!exit);
         }
-       
+
         private void MenuOptions(List<Planet> list, Planet planet)
         {
             Console.Clear();
             Console.WriteLine("");
             d.DisplayCenter($"\tYou are about to leave {currentPlanet.name}. Select your destination.");
             var index = planetList.FindIndex(i => i.name == currentPlanet.name);
-            if(index>=0)
+            if (index >= 0)
             {
                 planetList.RemoveAt(index);
             }
@@ -322,32 +329,12 @@ namespace AwesomeSpaceGame
 
         }
 
-        //Dont Use anymore Just here as reference
-        public void DisplayCurrentMarket(Market currentMarket)
-        {
-
-            //Console.WriteLine("========================================================================================================================");
-            Console.WriteLine("\nItem Name\t\t     Price of Item\t\t      Sell Price\t\t       Units");
-            Console.WriteLine("========================================================================================================================");
-            for (int i = 0; i < (currentMarket.items.Count); i++)
-            {
-                Console.WriteLine($"{currentMarket.items[i].itemName}\t --\t\t  {currentMarket.items[i].askPrice}\t\t --\t\t  {currentMarket.items[i].offerPrice}\t\t --\t\t  {currentMarket.items[i].weight}\n");
-            }
-            Console.WriteLine("\n\nMake A Selection:");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=================");
-            Console.ResetColor();
-            Console.WriteLine(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop");
-            Console.ReadKey();
-        }
-
         //This will make the current market the one being used for methods depending on what planet your on
         public Market ChoosesCurrentMarket(Planet currentPlanet, Planet earth, Planet alphaCentauri, Planet eridani, Planet ceti)
         {
             if (currentPlanet == earth)
             {
                 Console.WriteLine("earths market");
-
                 return planetList[0].planetMarket;
             }
             else if (currentPlanet == alphaCentauri)
@@ -387,7 +374,7 @@ namespace AwesomeSpaceGame
             Console.WriteLine("========================================================================================================================");
             for (int i = 0; i < currentMarket.items.Count; ++i)
             {
-                
+
                 if (i == selectedItem)
                 {
                     Console.BackgroundColor = ConsoleColor.Gray;
@@ -395,13 +382,13 @@ namespace AwesomeSpaceGame
                 }
 
                 Console.WriteLine($"{currentMarket.items[i].itemName}\t --\t\t  {currentMarket.items[i].askPrice}\t\t --\t\t  {currentMarket.items[i].offerPrice}\t\t --\t\t  {currentMarket.items[i].weight}");
-                
+
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.BackgroundColor = ConsoleColor.Black;
             }
-   
-                Display.MarketSelectionText(inventory);
-            
+
+            Display.MarketSelectionText(inventory);
+
         }
         //Displays CurrentMarket
         public int MarketController(Market currentMarket)
@@ -444,9 +431,9 @@ namespace AwesomeSpaceGame
                         var index = inventory.FindIndex(i => i.itemName == currentMarket.items[selectedItem].itemName);
                         if (index >= 0)
                         {
-                        inventory.RemoveAt(index);
-                        one.AddMoney(currentMarket.items[selectedItem].offerPrice);
-                        one.SellItemRemoveWeight(currentMarket.items[selectedItem].weight);
+                            inventory.RemoveAt(index);
+                            one.AddMoney(currentMarket.items[selectedItem].offerPrice);
+                            one.SellItemRemoveWeight(currentMarket.items[selectedItem].weight);
                         }
                         break;
                     case ConsoleKey.E:
@@ -457,6 +444,9 @@ namespace AwesomeSpaceGame
             } while (!quit);
 
             return selectedItem;
+
+
+
 
         }
 
@@ -480,7 +470,7 @@ namespace AwesomeSpaceGame
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.BackgroundColor = ConsoleColor.Black;
             }
-            
+
         }
         public int InventoryController(List<Item> inventory)
         {
@@ -517,6 +507,22 @@ namespace AwesomeSpaceGame
 
         }
 
+        public void EndOfGame()
+        {
+            if (one.money >= 100000)
+            {
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
+                d.DisplayCenter("Congratulations");
+                d.DisplayCenter("You Won");
+            }
+            else
+            {
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
+                d.DisplayCenter("Game Over");
+                d.DisplayCenter("You Lose");
+            }
+        }
+
     }
 }
 
@@ -524,14 +530,13 @@ namespace AwesomeSpaceGame
 
 
 
-                    
-        
-               // console.cursorvisible = false;
-                
+
+
+// console.cursorvisible = false;
 
 
 
 
 
 
-            
+

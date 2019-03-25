@@ -14,6 +14,7 @@ namespace AwesomeSpaceGame
         public string name;
         public double distance;
         public Market planetMarket;
+
         public double Distance(Planet a, Planet b)
         {
             double distance = Math.Sqrt(Math.Pow((b.x - a.x), 2) + Math.Pow((b.y - a.y), 2));
@@ -61,6 +62,7 @@ namespace AwesomeSpaceGame
             Console.WriteLine(" B. Buy Item\n S. Sell Item\n V. View Inventory\n M. Exit Shop");
             Console.ReadKey();
         }
+
         
     }
 }
