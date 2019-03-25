@@ -24,7 +24,7 @@ namespace AwesomeSpaceGame
         Character one = new Character();
         SpaceShip myShip;
         double inventoryMaxCapacity;
-        double warpFactor = 9.5;
+        double warpFactor;
 
         public GameManager()
         {
@@ -40,7 +40,7 @@ namespace AwesomeSpaceGame
             planetList.Add(new Planet("Alpha Centauri 3", 25.3, 55.4));
             planetList.Add(new Planet("40 Eridani", 90.5, -150.2));
             planetList.Add(new Planet("YZ Ceti", -455.1, 900.5));
-            planetList.Add(new Planet("New Moon", 1500, 2300));
+            planetList.Add(new Planet("New Moon", 11500, 23000));
 
             Market earthMarket = planetList[0].planetMarket;
             Market alphaCentauriMarket = planetList[1].planetMarket;
@@ -132,7 +132,6 @@ namespace AwesomeSpaceGame
                 PrintCurrentStatus();
                     do
                     {
-                    EndOfGame();
                         try
                         {
                             Console.Clear();
@@ -225,17 +224,20 @@ namespace AwesomeSpaceGame
             destination = planetList[i];
             currentPlanet = destination;
             double travelTime = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);//TODO: WarpFactor change based on Difficulty
-            Console.WriteLine($"{travelTime:f2}");
-            one.LeaveLeft(travelTime);
             if (travelTime >= one.leaveLeft)
             {
                 Console.Clear();
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
+                d.DisplayCenter("Game Over");
+                d.DisplayCenter("You Lose. Time to go back and sign your paperwork.");
+
                 EndOfGame();
-                Console.ReadKey();
                 leaveLoop = true;
             }
             else if (travelTime < one.leaveLeft)
             {
+                one.LeaveLeft(travelTime);
+                Console.WriteLine($"{travelTime:f2}");
                 Console.WriteLine($"Welcome to {planetList[i].name}.");
             }
         }
@@ -518,24 +520,20 @@ namespace AwesomeSpaceGame
 
         }
 
-        public bool EndOfGame() // Return bool and wrap main game menu with a loop
+        public void EndOfGame() // Return bool and wrap main game menu with a loop
         {
             if (one.money >= 100000)
             {
                 Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
                 d.DisplayCenter("Congratulations");
                 d.DisplayCenter("You Won");
-                return true;
             }
             else if (one.money <= 0 || one.leaveLeft <= 0)
             {
                 Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
                 d.DisplayCenter("Game Over");
                 d.DisplayCenter("You Lose. Time to go back and sign your paperwork.");
-                return true;
             }
-            else
-                return false;
         }
 
     }
