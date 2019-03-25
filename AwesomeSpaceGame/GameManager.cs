@@ -142,28 +142,27 @@ namespace AwesomeSpaceGame
                             Console.WriteLine("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");
                             var choice = Console.ReadKey(true).Key;
 
-                            switch (choice)
-                            {
-                                case ConsoleKey.D:
-                                    Planet.PlanetDescription();
-                                    Console.Read();
-                                    break;
-                                case ConsoleKey.T:
-                                    PlanetTravel();
-                                    Console.ReadKey();
-                                    break;
-                                case ConsoleKey.M:
-                                    Console.Clear();
-                                    PrintCurrentStatus();
-                                    MarketController(ChoosesCurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
-                                    Display.MarketSelectionText(inventory);
-                                    Console.ReadKey();
-                                    break;
-                                case ConsoleKey.Q:
-                                    leaveLoop = true;
-                                    break;
-                                default:
-                                    break;
+                        switch (choice)
+                        {
+                            case ConsoleKey.D:
+                                Planet.PlanetDescription();
+                                Console.ReadKey();
+                                break;
+                            case ConsoleKey.T:
+                                PlanetTravel();
+                                Console.ReadKey();
+                                break;
+                            case ConsoleKey.M:
+                                Console.Clear();
+                                PrintCurrentStatus();
+                                MarketController(ChoosesCurrentMarket(currentPlanet, planetList[0], planetList[1], planetList[2], planetList[3]));
+                                Display.MarketSelectionText(inventory);
+                                break;
+                            case ConsoleKey.Q:
+                                leaveLoop = true;
+                                break;
+                            default:
+                                break;
 
 
                             }

@@ -90,8 +90,15 @@ namespace AwesomeSpaceGame
 
         public double LeaveLeft(double daysTravel)
         {
-            leaveLeft -= daysTravel;
-            return leaveLeft;
+            if(daysTravel>leaveLeft)
+            {
+                Console.WriteLine("You don't have enough leave days to travel that far. \nTime to sign your re-enlistment contract...");
+                return leaveLeft;
+            }
+            
+                leaveLeft -= daysTravel;
+                return leaveLeft;
+            
         }
 
         public double Capacity()
