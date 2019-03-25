@@ -266,24 +266,57 @@ namespace AwesomeSpaceGame
             }
         }
 
+        //public static void MarketSelectionText(List<Item> inventory)
+        //{
+        //    origRow = Console.CursorTop;
+        //    origCol = Console.CursorLeft;
+        //    int nextItem = 0;
+        //    WriteAt("\n\nMake A Selection:", 0, 1);
+        //    Console.ForegroundColor = ConsoleColor.Red;
+        //    WriteAt("=================",0, 4);
+        //    Console.ResetColor();
+        //    WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n E. Exit Shop", 0, 5);
+        //    WriteAt("Inventory: ", 36, 4);
+                           
+        //        for (int i = 0; i < inventory.Count; i++)
+        //        {   
+        //            WriteAt($"{inventory[i].itemName}", 48, 4 + nextItem);
+        //            nextItem = (nextItem + 1);
+                    
+        //        }
+        //}
+
         public static void MarketSelectionText(List<Item> inventory)
         {
             origRow = Console.CursorTop;
             origCol = Console.CursorLeft;
             int nextItem = 0;
+            var maxColLength = 5;
+            var xInventoryStart = 48;
+            var maxColTracker = 1;
             WriteAt("\n\nMake A Selection:", 0, 1);
             Console.ForegroundColor = ConsoleColor.Red;
-            WriteAt("=================",0, 4);
+            WriteAt("=================", 0, 4);
             Console.ResetColor();
             WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n E. Exit Shop", 0, 5);
             WriteAt("Inventory: ", 36, 4);
-                           
-                for (int i = 0; i < inventory.Count; i++)
+
+                for (int i = 0; i < inventory.Count; i++,maxColTracker++)
                 {
-                    WriteAt($"{inventory[i].itemName}", 48, 4 + nextItem);
+                    WriteAt(inventory[i].itemName, xInventoryStart, 4 + nextItem);
                     nextItem = (nextItem + 1);
+                    if (maxColTracker >= maxColLength)
+                    {
+                        maxColTracker = 0;
+                        xInventoryStart += 12;
+                        nextItem = 0;
+                    }
                 }
         }
+
+         
+
+
 
         
 

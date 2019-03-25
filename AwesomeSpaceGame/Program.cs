@@ -10,6 +10,7 @@ namespace AwesomeSpaceGame
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(Console.WindowWidth,28);
             new GameManager().Run();
             Console.ReadKey();
             
