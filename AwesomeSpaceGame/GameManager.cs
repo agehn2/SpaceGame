@@ -244,15 +244,15 @@ namespace AwesomeSpaceGame
                     switch (key)
                     {
                         case ConsoleKey.E:
-                            myShip = spaceShipsList[2];
+                            warpFactor = myShip.SelectWarpFactor(0);
                             Console.Clear();
                             break;
                         case ConsoleKey.M:
-                            myShip = spaceShipsList[1];
+                            warpFactor = myShip.SelectWarpFactor(1);
                             Console.Clear();
                             break;
                         case ConsoleKey.H:
-                            myShip = spaceShipsList[0];
+                            warpFactor = myShip.SelectWarpFactor(2);
                             Console.Clear();
                             break;
                         default:

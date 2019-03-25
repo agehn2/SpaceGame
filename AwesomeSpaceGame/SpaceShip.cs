@@ -11,14 +11,13 @@ namespace AwesomeSpaceGame
         
         double capacity;
         double speedOfSpaceShip;
-        
 
         private const double n = 1.7952294708;
         private const double a = 0.03658749373;
 
-        public static double warpFactorHard = 9.5;
-        public static double warpFactorMedium = 9.6;
-        public static double warpFactorEasy = 9.7;
+        public static double warpFactorHard = 9.0;
+        public static double warpFactorMedium = 9.5;
+        public static double warpFactorEasy = 9.9;
 
         public const double capacityHard = 90;
         public const double capacityMedium = 100;
@@ -77,11 +76,11 @@ namespace AwesomeSpaceGame
         public double SelectWarpFactor(int i)
         {
             if (i == 0)
-                return 9.5;
+                return warpFactorEasy;
             else if (i == 1)
-                return 9.6;
+                return warpFactorMedium;
             else
-                return 9.7;
+                return warpFactorHard;
         }
 
         //Add weight to ship
