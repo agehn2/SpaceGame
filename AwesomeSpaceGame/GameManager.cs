@@ -225,6 +225,13 @@ namespace AwesomeSpaceGame
             double travelTime = origin.Distance(origin, currentPlanet) / myShip.Speed(warpFactor);//TODO: WarpFactor change based on Difficulty
             Console.WriteLine($"{travelTime:f2}");
             one.LeaveLeft(travelTime);
+            if (travelTime >= one.leaveLeft)
+            {
+                Console.Clear();
+                EndOfGame();
+                Console.ReadKey();
+                leaveLoop = true;
+            }
             Console.WriteLine($"Welcome to {planetList[i].name}.");
         }
 
