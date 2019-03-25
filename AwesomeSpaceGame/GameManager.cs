@@ -128,9 +128,11 @@ namespace AwesomeSpaceGame
                 inventoryMaxCapacity = spaceShipsList[1].spaceShipHard.capacitySpaceShip;
 
                 one.Display();
+
                 PrintCurrentStatus();
                     do
                     {
+                    EndOfGame();
                         try
                         {
                             Console.Clear();
@@ -232,7 +234,10 @@ namespace AwesomeSpaceGame
                 Console.ReadKey();
                 leaveLoop = true;
             }
-            Console.WriteLine($"Welcome to {planetList[i].name}.");
+            else if (travelTime < one.leaveLeft)
+            {
+                Console.WriteLine($"Welcome to {planetList[i].name}.");
+            }
         }
 
         public void ChooseSpaceShip()
@@ -513,20 +518,24 @@ namespace AwesomeSpaceGame
 
         }
 
-        public void EndOfGame()
+        public bool EndOfGame() // Return bool and wrap main game menu with a loop
         {
             if (one.money >= 100000)
             {
                 Console.WriteLine("\n\n\n\n\n\n\n\n\n\n");
                 d.DisplayCenter("Congratulations");
                 d.DisplayCenter("You Won");
+                return true;
             }
-            else
+            else if (one.money <= 0 || one.leaveLeft <= 0)
             {
                 Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
                 d.DisplayCenter("Game Over");
-                d.DisplayCenter("You Lose");
+                d.DisplayCenter("You Lose. Time to go back and sign your paperwork.");
+                return true;
             }
+            else
+                return false;
         }
 
     }
