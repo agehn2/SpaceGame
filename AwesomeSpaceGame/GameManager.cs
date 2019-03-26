@@ -9,33 +9,25 @@ namespace AwesomeSpaceGame
 {
     class GameManager
     {
-        Planet currentPlanet;
-        Planet origin;
-        Planet destination;
 
-        Display d = new Display();
-        //List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         List<Planet> planetList = new List<Planet>();
         List<SpaceShip> spaceShipsList = new List<SpaceShip>();
         List<Item> inventory = new List<Item>();
-
-
-        int selectedItem;
+        Display d = new Display();
         Character one = new Character();
+       
+
+        Planet currentPlanet;
+        Planet origin;
+        Planet destination;
         SpaceShip myShip;
+        int selectedItem;
         double capacity;
         double warpFactor;
+        bool leaveLoop = false;
 
         public GameManager()
         {
-            //inventory.Add(new Item("steel:   ", 260, 270, 245, 260, 2));
-            //inventory.Add(new Item("bronze:  ", 260, 270, 245, 260, 4));
-            //inventory.Add(new Item("iron:    ", 260, 270, 245, 260, 5));
-            //inventory.Add(new Item("gold:    ", 260, 270, 245, 260, 3));
-            //inventory.Add(new Item("copper:  ", 260, 270, 245, 260, 4));
-            //TODO: Initial weight capacity has to be adjusted based on inventory items.
-
-
             planetList.Add(new Planet("Earth", 0.0, 0.0));
             planetList.Add(new Planet("Alpha Centauri 3", 25.3, 55.4));
             planetList.Add(new Planet("40 Eridani", 90.5, -150.2));
@@ -59,60 +51,6 @@ namespace AwesomeSpaceGame
             spaceShipsList.Add(new SpaceShip("Space Force One", SpaceShip.capacityEasy, SpaceShip.warpFactorEasy));
         }
 
-
-
-
-
-        private void AddToNewMoon(ref Market newMoonMarket)
-        {
-            newMoonMarket.AddItem(new Item("steel   ", 260, 270, 245, 260, 2));
-            newMoonMarket.AddItem(new Item("bronze  ", 295, 335, 280, 295, 4));
-            newMoonMarket.AddItem(new Item("iron    ", 315, 360, 305, 315, 5));
-            newMoonMarket.AddItem(new Item("gold    ", 365, 410, 340, 360, 3));
-            newMoonMarket.AddItem(new Item("copper  ", 220, 265, 205, 215, 4));
-        }
-
-        private void AddToCeti(ref Market cetiMarket)
-        {
-            cetiMarket.AddItem(new Item("steel   ", 250, 265, 235, 250, 2));
-            cetiMarket.AddItem(new Item("bronze  ", 410, 465, 390, 405, 4));
-            cetiMarket.AddItem(new Item("iron    ", 420, 500, 410, 420, 5));
-            cetiMarket.AddItem(new Item("gold    ", 315, 360, 300, 315, 3));
-            cetiMarket.AddItem(new Item("copper  ", 320, 370, 300, 310, 4));
-            cetiMarket.AddItem(new Item("mithril ", 200, 300, 180, 200, 8));
-        }
-
-        private void AddToEridani(ref Market erdaniMarket)
-        {
-            erdaniMarket.AddItem(new Item("steel   ", 120, 130, 105, 120, 2));
-            erdaniMarket.AddItem(new Item("bronze  ", 210, 255, 195, 210, 4));
-            erdaniMarket.AddItem(new Item("iron    ", 215, 250, 200, 215, 5));
-            erdaniMarket.AddItem(new Item("gold    ", 255, 295, 240, 255, 3));
-            erdaniMarket.AddItem(new Item("copper  ", 270, 305, 255, 265, 4));
-        }
-
-        private void AddToAlphaCentauri(ref Market alphaCentauriMarket)
-        {
-            alphaCentauriMarket.AddItem(new Item("steel   ", 100, 110, 90, 100, 2));
-            alphaCentauriMarket.AddItem(new Item("bronze  ", 255, 290, 240, 255, 4));
-            alphaCentauriMarket.AddItem(new Item("iron    ", 265, 305, 245, 255, 5));
-            alphaCentauriMarket.AddItem(new Item("gold    ", 175, 200, 140, 150, 3));
-            alphaCentauriMarket.AddItem(new Item("copper  ", 375, 415, 360, 375, 4));
-        }
-
-        private void AddToEarth(ref Market earthMarket)
-        {
-
-            earthMarket.AddItem(new Item("steel   ", 75, 80, 65, 70, 2));
-            earthMarket.AddItem(new Item("bronze  ", 335, 395, 320, 335, 4));
-            earthMarket.AddItem(new Item("iron    ", 345, 395, 335, 345, 5));
-            earthMarket.AddItem(new Item("gold    ", 205, 245, 160, 175, 3));
-            earthMarket.AddItem(new Item("copper  ", 410, 480, 400, 410, 4));
-            earthMarket.AddItem(new Item("mithril ", 550, 850, 400, 450, 8));
-
-        }
-
-        bool leaveLoop = false;
         public void Run()
         {
             currentPlanet = planetList[0];
@@ -139,7 +77,7 @@ namespace AwesomeSpaceGame
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("========================================================================================================================");
                             Console.ResetColor();
-                            Console.WriteLine("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");
+                            Console.WriteLine("D: Planet Descriptions   ||   T: Travel to planet   ||   M: Market   ||   Q: Quit");                           
                             var choice = Console.ReadKey(true).Key;
 
                         switch (choice)
@@ -242,6 +180,11 @@ namespace AwesomeSpaceGame
         }
 
         public void ChooseSpaceShip()
+
+
+
+
+
         {
             bool exit = false;
             do
@@ -308,7 +251,6 @@ namespace AwesomeSpaceGame
             planetList.Add(currentPlanet);
         }
 
-
         private int Controller(List<Planet> list)
         {
             bool quit = false;
@@ -344,7 +286,6 @@ namespace AwesomeSpaceGame
 
         }
 
-        //This will make the current market the one being used for methods depending on what planet your on
         public Market ChoosesCurrentMarket(Planet currentPlanet, Planet earth, Planet alphaCentauri, Planet eridani, Planet ceti)
         {
             if (currentPlanet == earth)
@@ -379,7 +320,6 @@ namespace AwesomeSpaceGame
             }
 
         }
-
         //Navigate current Market
         public void MarketInterface(Market currentMarket)
         {
@@ -407,6 +347,9 @@ namespace AwesomeSpaceGame
         }
         //Displays CurrentMarket
         public int MarketController(Market currentMarket)
+
+        
+
         {
             bool quit = false;
 
@@ -495,6 +438,7 @@ namespace AwesomeSpaceGame
             }
 
         }
+
         public int InventoryController(List<Item> inventory)
         {
             bool quit = false;
@@ -546,6 +490,54 @@ namespace AwesomeSpaceGame
             }
         }
 
+        private void AddToNewMoon(ref Market newMoonMarket)
+        {
+            newMoonMarket.AddItem(new Item("steel   ", 260, 270, 245, 260, 2));
+            newMoonMarket.AddItem(new Item("bronze  ", 295, 335, 280, 295, 4));
+            newMoonMarket.AddItem(new Item("iron    ", 315, 360, 305, 315, 5));
+            newMoonMarket.AddItem(new Item("gold    ", 365, 410, 340, 360, 3));
+            newMoonMarket.AddItem(new Item("copper  ", 220, 265, 205, 215, 4));
+        }
+
+        private void AddToCeti(ref Market cetiMarket)
+        {
+            cetiMarket.AddItem(new Item("steel   ", 250, 265, 235, 250, 2));
+            cetiMarket.AddItem(new Item("bronze  ", 410, 465, 390, 405, 4));
+            cetiMarket.AddItem(new Item("iron    ", 420, 500, 410, 420, 5));
+            cetiMarket.AddItem(new Item("gold    ", 315, 360, 300, 315, 3));
+            cetiMarket.AddItem(new Item("copper  ", 320, 370, 300, 310, 4));
+            cetiMarket.AddItem(new Item("mithril ", 200, 300, 180, 200, 8));
+        }
+
+        private void AddToEridani(ref Market erdaniMarket)
+        {
+            erdaniMarket.AddItem(new Item("steel   ", 120, 130, 105, 120, 2));
+            erdaniMarket.AddItem(new Item("bronze  ", 210, 255, 195, 210, 4));
+            erdaniMarket.AddItem(new Item("iron    ", 215, 250, 200, 215, 5));
+            erdaniMarket.AddItem(new Item("gold    ", 255, 295, 240, 255, 3));
+            erdaniMarket.AddItem(new Item("copper  ", 270, 305, 255, 265, 4));
+        }
+
+        private void AddToAlphaCentauri(ref Market alphaCentauriMarket)
+        {
+            alphaCentauriMarket.AddItem(new Item("steel   ", 100, 110, 90, 100, 2));
+            alphaCentauriMarket.AddItem(new Item("bronze  ", 255, 290, 240, 255, 4));
+            alphaCentauriMarket.AddItem(new Item("iron    ", 265, 305, 245, 255, 5));
+            alphaCentauriMarket.AddItem(new Item("gold    ", 175, 200, 140, 150, 3));
+            alphaCentauriMarket.AddItem(new Item("copper  ", 375, 415, 360, 375, 4));
+        }
+
+        private void AddToEarth(ref Market earthMarket)
+        {
+
+            earthMarket.AddItem(new Item("steel   ", 75, 80, 65, 70, 2));
+            earthMarket.AddItem(new Item("bronze  ", 335, 395, 320, 335, 4));
+            earthMarket.AddItem(new Item("iron    ", 345, 395, 335, 345, 5));
+            earthMarket.AddItem(new Item("gold    ", 205, 245, 160, 175, 3));
+            earthMarket.AddItem(new Item("copper  ", 410, 480, 400, 410, 4));
+            earthMarket.AddItem(new Item("mithril ", 550, 850, 400, 450, 8));
+
+        }
     }
 }
 

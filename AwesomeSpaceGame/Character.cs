@@ -13,6 +13,7 @@ namespace AwesomeSpaceGame
         public double money = 15000;
         public double leaveLeft = 50;
         double capacity=100;
+        public static bool CursorVisible { get; set; }
         
 
         //constructor
@@ -50,19 +51,24 @@ namespace AwesomeSpaceGame
 
         public void Display()
         {
+            CursorVisible = false;
             string intro1 = "\n\n\n\t\t........3 years later. \nIt is time for you to get out of the military." +
                 "\nUnfortunately, you have been busy partying and don't have enough money to get out. " +
                 "\nOnly entitlement you have now is 50 days of leave. Now you have two choices." +
                 "\nYou have to earn $100,000 in 50 days or reenlist\n...FOR LIFE\n\n\n\n\n\n\n\n\n Press Enter to Continue";
-            Console.Write("What is your FIRST Name: ");
+            AskForFirstName();
             string userName = Console.ReadLine();
-            Console.Write("I DON'T CARE. What is your LAST Name: ");
+            Console.Clear();
+            CursorVisible = false;
+            AskForLastName();
             string userInput = Console.ReadLine();
             Console.Clear();
+            CursorVisible = false;
             Console.WriteLine($"{Intro(userInput)}");
             name = userName;
             Console.ReadKey();
             Console.Clear();
+            CursorVisible = false;
             Console.WriteLine(intro1);
             Console.ReadKey();
         }
@@ -134,6 +140,64 @@ namespace AwesomeSpaceGame
             {
                 return leaveLeft = false;
             }
+        }
+        protected static int origRow;
+        protected static int origCol;
+
+        protected static void WriteAt(string s, int x, int y)
+        {
+            try
+            {
+                Console.SetCursorPosition(origCol + x, origRow + y);
+                Console.Write(s);
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.Clear();
+                Console.Write(e.Message);
+            }
+        }
+         public static void AskForFirstName()
+        {
+            
+            origRow = Console.CursorTop;
+            origCol = Console.CursorLeft;
+            int nextLine = 1;
+            
+
+            WriteAt("╔════════════════════════╗", 44, 11);
+            WriteAt("╚════════════════════════╝", 44, 16);
+            for (int i = 0; i < 4; i++)
+            {
+                WriteAt("║", 44,11 + nextLine);
+                WriteAt("║", 69, 11 + nextLine);
+                nextLine++;
+            }
+          
+            WriteAt("What is your First Name", 45, 12);
+             WriteAt("════════════════════════", 45, 13);
+            WriteAt("", 45, 14);
+        }
+
+         public static void AskForLastName()
+        {
+            
+            origRow = Console.CursorTop;
+            origCol = Console.CursorLeft;
+            int nextLine = 1;
+            
+
+            WriteAt("╔════════════════════════╗", 44, 11);
+            WriteAt("╚════════════════════════╝", 44, 16);
+            for (int i = 0; i < 4; i++)
+            {
+                WriteAt("║", 44,11 + nextLine);
+                WriteAt("║", 69, 11 + nextLine);
+                nextLine++;
+            }
+            WriteAt("What is your Last Name", 45, 12);
+            WriteAt("════════════════════════", 45, 13);
+            WriteAt("", 45, 14);
         }
 
     }

@@ -9,7 +9,7 @@ namespace AwesomeSpaceGame
 {
     class Display
     {
-        List<string> Difficulty = new List<string> {"Easy", "Medium", "Hard"};
+        List<string> Difficulty = new List<string> { "Easy", "Medium", "Hard" };
         List<string> mainMenu = new List<string>();  //TODO: Create enum Actions {Start, Quit};
         List<string> MarketMenu = new List<string>(); //Buy, Sell, Inventory
 
@@ -24,7 +24,7 @@ namespace AwesomeSpaceGame
             mainMenu.Add("Quit ");
             Console.Clear();
             return UserInputHandler();
-            
+
         }
 
         public bool UserInputHandler()
@@ -84,8 +84,8 @@ namespace AwesomeSpaceGame
                 Console.WriteLine("");
                 if (i == selectedMenu)
                 {
-                Console.BackgroundColor = ConsoleColor.Gray;
-                Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Blue;
                 }
                 DisplayCenter($"{mainMenu[i]}");
 
@@ -130,7 +130,7 @@ namespace AwesomeSpaceGame
                         "and.....PERSONAL.....COURAGE!! " ,
                         "Visit the nearest ARMY recruiting center!! ",
                         "\n\n", "Press any key to sign your CONTRACT..." };
-            Console.ForegroundColor = ConsoleColor.DarkYellow;            
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             foreach (var s in script)
             {
                 DisplayCenter(s);
@@ -138,7 +138,7 @@ namespace AwesomeSpaceGame
 
             Console.ResetColor();
             Console.ReadKey();
-            
+
         }
 
         private void SelectNextItem()
@@ -184,8 +184,8 @@ namespace AwesomeSpaceGame
             Console.ResetColor();
 
         }
-       
-         public static void ChooseDifficulty()
+
+        public static void ChooseDifficulty()
         {
             Console.WriteLine("Choose your difficulty:");
             Console.ForegroundColor = ConsoleColor.Red;
@@ -200,7 +200,7 @@ namespace AwesomeSpaceGame
             Console.Clear();
 
             for (int i = 0; i < list.Count; ++i)
-            {                
+            {
                 Console.WriteLine("");
                 if (i == selectedItem)
                 {
@@ -211,11 +211,11 @@ namespace AwesomeSpaceGame
 
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.BackgroundColor = ConsoleColor.Black;
-            }      
+            }
         }
-    
 
-        public int Controller (List<string> list)
+
+        public int Controller(List<string> list)
         {
             bool quit = false;
 
@@ -250,7 +250,7 @@ namespace AwesomeSpaceGame
 
         }
 
-       
+
 
         protected static void WriteAt(string s, int x, int y)
         {
@@ -277,12 +277,12 @@ namespace AwesomeSpaceGame
         //    Console.ResetColor();
         //    WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n E. Exit Shop", 0, 5);
         //    WriteAt("Inventory: ", 36, 4);
-                           
+
         //        for (int i = 0; i < inventory.Count; i++)
         //        {   
         //            WriteAt($"{inventory[i].itemName}", 48, 4 + nextItem);
         //            nextItem = (nextItem + 1);
-                    
+
         //        }
         //}
 
@@ -301,18 +301,22 @@ namespace AwesomeSpaceGame
             WriteAt(" B. Buy Item\n S. Sell Item\n V. View Inventory\n E. Exit Shop", 0, 5);
             WriteAt("Inventory: ", 36, 4);
 
-                for (int i = 0; i < inventory.Count; i++,maxColTracker++)
+            for (int i = 0; i < inventory.Count; i++, maxColTracker++)
+            {
+                WriteAt(inventory[i].itemName, xInventoryStart, 4 + nextItem);
+                nextItem = (nextItem + 1);
+                if (maxColTracker >= maxColLength)
                 {
-                    WriteAt(inventory[i].itemName, xInventoryStart, 4 + nextItem);
-                    nextItem = (nextItem + 1);
-                    if (maxColTracker >= maxColLength)
-                    {
-                        maxColTracker = 0;
-                        xInventoryStart += 12;
-                        nextItem = 0;
-                    }
+                    maxColTracker = 0;
+                    xInventoryStart += 12;
+                    nextItem = 0;
                 }
+            }
         }
+
+
+
+       
 
          
 
